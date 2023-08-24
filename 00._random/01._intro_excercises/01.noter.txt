@@ -1,0 +1,22 @@
+node er enviorenment hvor at kører js, det er taget ud af chrome
+
+REPL = READ EVALUATE PRINT LOOP
+
+js typer:
+string
+number 
+boolean
+BigInteger
+undefined
+null
+symbol
+object: object, array, date
+
+data construct = function
+
+
+ORDER:
+get
+post
+put/patch
+delete
