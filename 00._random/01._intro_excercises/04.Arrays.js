@@ -12,14 +12,11 @@ console.log(letters[1])
 
 const friends = [];
 
-const friend1 = {}
-const friend2 = {}
-const friend3 = {}
+const friend1 = {name:"Daniel"}
+const friend2 = {name:"Mike"}
+const friend3 = {name:"Frederik"}
 
 // What a lonely array. Add at least 3 friend objects to it.  
-friend1.name="Daniel"
-friend2.name="Mike"
-friend3.name="Frederik"
 
 friends.push(friend1,friend2,friend3)
 console.log(friends)
@@ -70,9 +67,8 @@ const lettersExpanded = ["a","b","c", "d", "e", "f", "g", "h"];
 // log every second char in the array starting from b
 
 for (let i = 1; i < lettersExpanded.length; i++) {
-    const element = lettersExpanded[i];
     if(i % 2){
-        console.log(element)
+        console.log(lettersExpanded[i])
     }
     
 }
@@ -95,7 +91,7 @@ for (let i = 0; i < numbers.length; i++) {
     }
     
 }
-console.log("discarded numbers",discardedNumbers)
+console.log(`discarded numbers: ${discardedNumbers}`)
 // --------------------------------------
 
 
