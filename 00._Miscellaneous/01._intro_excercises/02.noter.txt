@@ -1,0 +1,10 @@
+const og let bløder ikke ud over deres scope. Let kan ændre deres declaration, det kan const ikke.
+
+var er en global variable og bløder ud i andre scopes, i samme fil.
+
+totat global variable bløder ud i andre filer.
+
+
+functions og variables bliver hoisted op og kan derfore kaldes før de er skrevet i koden.
+
+callback function der bliver givet videre som argument
