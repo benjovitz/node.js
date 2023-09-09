@@ -1,32 +1,34 @@
 'use strict';
 
-myConstant = "Hello World";
+const myConstant = "Hello World";
 
 eval("let x = 2");
-x = 3;
+const x = 3;
 
-var public = "public variable";
+var publicVariable = "public variable";
 
-const defaultValue;
+const defaultValue = 2;
 
-const message = "";
-
+let message = "";
+{
 let console = "Output";
 
-delete console;
+console = null
+}
 
-delete arguments;
 
-const arguments = [1, 2, 3];
+let myArguments = [1, 2, 3];
+
+myArguments = null; 
 
 function alerting() {
     message = console;
  }
-
+/*
  delete 
  
-
-function searchingForTrouble() {
+*/
+function searchingForTrouble(trouble) {
     trouble = true;
 }
 
@@ -38,6 +40,10 @@ function logMessage(guard="") {
     }
 }
 
-logMessage();
+logMessage(NaN);
+
+const everythingIsFine = (value) =>{
+    
+}
 
 everythingIsFine(true);
