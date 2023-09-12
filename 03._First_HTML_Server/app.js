@@ -8,7 +8,7 @@ const PORT = 8080
 console.log(__dirname)
 
 app.get("/", (req, res) => {
-    res.sendFile(`${__dirname}/publicc/home.html`)
+    res.sendFile(`${__dirname}/public/home.html`)
 })
 
 app.get("/secondPage", (req, res) => {
