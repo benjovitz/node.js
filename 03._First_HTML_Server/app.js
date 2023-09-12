@@ -13,8 +13,7 @@ app.get("/", (req, res) => {
 
 app.get("/welcomeMessage", (req, res) => {
     const user = req.query?.user
-    console.log(user)
-    res.send({data: `welcome to the jungle ${user}`})
+    user ? res.send({data: `welcome to the jungle ${user}`}) : res.send({data: `welcome to the jungle stranger`})
 })
 
 app.get("/secondPage", (req, res) => {
