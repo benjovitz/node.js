@@ -11,6 +11,12 @@ app.get("/", (req, res) => {
     res.sendFile(`${__dirname}/public/home.html`)
 })
 
+app.get("/welcomeMessage", (req, res) => {
+    const user = req.query?.user
+    console.log(user)
+    res.send({data: `welcome to the jungle ${user}`})
+})
+
 app.get("/secondPage", (req, res) => {
     res.sendFile(`${__dirname}/public/secondPage.html`)
 })

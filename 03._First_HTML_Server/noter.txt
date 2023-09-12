@@ -1,0 +1,7 @@
+ulemper ved css.
+
+dummest når det er inline.
+
+dumt når det er i styletag
+
+ok når det er i egen .css fil
