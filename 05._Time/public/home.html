@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time</title>
+</head>
+<body>
+    <container id="secondContainer" class="second-container">
+        <div class="second"></div>
+    </container>
+    <container id="minuteContainer" class="minute-container"></container>
+    <container id="hourContainer" class="hour-container">
+        <div class="hour">en time</div>
+    </container>
+</body>
+
+<style>
+    body{
+        background-color: black;
+        margin: 10vh 20vh 0 20vh;
+        color: white;
+    }
+
+    .second-container{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+    }
+
+    .second{
+        border-style: solid;
+        border-color: white;
+        margin: 1vh;
+    }
+
+    .minute-container{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+
+    }
+
+    .minute{
+        background-color: white;
+        border-style: solid;
+        border-color: black;
+    }
+
+    .hour-container{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    }
+
+    .hour{
+        background-color: white;
+    }
+  
+</style>
+
+<script>
+
+function addSecondDiv() {
+    const secondContainer = document.getElementById("secondContainer")
+    let second = 1
+    let minute = 0
+
+    const interval = setInterval(() => {
+        //59
+        if (second <= 3) {
+            const newDiv = document.createElement("div")
+            newDiv.className = "second"
+            secondContainer.appendChild(newDiv)
+            second++;
+
+        } else {
+            secondContainer.innerHTML=""
+            const newDiv = document.createElement("div")
+            newDiv.className = "second"
+            secondContainer.appendChild(newDiv)
+            addMinuteDiv()
+            second = 1
+        }
+    }, 1000)
+}
+
+function addMinuteDiv(minute){
+    minute++
+    if (minute < 60) {
+    const minuteContainer = document.getElementById("minuteContainer")
+    const newDiv = document.createElement("div")
+    newDiv.className = "minute"
+    newDiv.innerText = "minute"
+    minuteContainer.appendChild(newDiv)
+
+    } else {
+        //add hour
+    }
+    
+}
+
+    addSecondDiv()
+</script>
+</html>
