@@ -1,11 +1,14 @@
+const welcomeMessageJson = require("./welcomeMessage.json")
+
 function getWelcomeMessage(clientname){
     if(!clientname){
-        return "welcome stranger"
+        return welcomeMessageJson.noNameWelcomeMessage
     } else {
-        return `Welcome ${clientname}`
+        return welcomeMessageJson.nameWelcomeMessage.replace("$clientname", clientname)
     }
 }
 
 module.exports = {
-    getWelcomeMessage
+    getWelcomeMessage,
+    name: "Daniel"
 }

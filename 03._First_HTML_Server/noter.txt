@@ -5,3 +5,10 @@ dummest når det er inline.
 dumt når det er i styletag
 
 ok når det er i egen .css fil
+
+skal importe ja fra frontend, eller sætte type module
+
+export default er kun en enkelt export (enkelt metode)
+
+i backend er det require + module.exports
+lave en app.use(express.static("public")) for at serve hele public mappen

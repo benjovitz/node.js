@@ -1,0 +1,4 @@
+{
+    "nameWelcomeMessage": "Hello $clientname",
+    "noNameWelcomeMessage": "Hello Stranger"
+}
