@@ -4,18 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
+    <link rel="stylesheet" href="home.css">
 </head>
 <body>
     <h1 id="welcomeHeader">This is a homepage</h1>
 
 
 </body>
-<script>
-   fetch("/welcomeMessage?user=Daniel")
-   .then((response) => response.json())
-   .then((result) => {
-    console.log(result.data)
-    document.getElementById("welcomeHeader").innerText = result.data
-   })
-</script>
+<script src="home.js"></script>
 </html>

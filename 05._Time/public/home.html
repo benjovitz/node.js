@@ -79,7 +79,7 @@ function addSecondDiv() {
             const newDiv = document.createElement("div")
             newDiv.className = "second"
             secondContainer.appendChild(newDiv)
-            addMinuteDiv()
+            addMinuteDiv(minute)
             second = 1
         }
     }, 1000)
@@ -87,6 +87,7 @@ function addSecondDiv() {
 
 function addMinuteDiv(minute){
     minute++
+    console.log(minute)
     if (minute < 60) {
     const minuteContainer = document.getElementById("minuteContainer")
     const newDiv = document.createElement("div")
@@ -102,4 +103,4 @@ function addMinuteDiv(minute){
 
     addSecondDiv()
 </script>
-</html>
+</html> 
