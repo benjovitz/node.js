@@ -12,3 +12,5 @@ export default er kun en enkelt export (enkelt metode)
 
 i backend er det require + module.exports
 lave en app.use(express.static("public")) for at serve hele public mappen
+
+fetch laver et http netværkskald som retunerer et promise af en bytestream
