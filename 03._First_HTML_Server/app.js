@@ -1,4 +1,5 @@
 const express = require("express")
+const { getWelcomeMessage } = require("./util/welcomeMessage.js")
 
 const app = express()
 app.use(express.static("public"))
@@ -14,7 +15,8 @@ app.get("/", (req, res) => {
 
 app.get("/welcomeMessage", (req, res) => {
     const user = req.query?.user
-    user ? res.send({data: `welcome to the jungle ${user}`}) : res.send({data: `welcome to the jungle stranger`})
+    const welcomeMessage = getWelcomeMessage(user)
+    res.send({data: welcomeMessage})
 })
 
 app.get("/secondPage", (req, res) => {

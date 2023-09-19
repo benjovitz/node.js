@@ -11,7 +11,6 @@
     </container>
     <container id="minuteContainer" class="minute-container"></container>
     <container id="hourContainer" class="hour-container">
-        <div class="hour">en time</div>
     </container>
 </body>
 
@@ -55,6 +54,8 @@
 
     .hour{
         background-color: white;
+        border-style: solid;
+        border-color: black;
     }
   
 </style>
@@ -63,44 +64,48 @@
 
 function addSecondDiv() {
     const secondContainer = document.getElementById("secondContainer")
-    let second = 1
+    const minuteContainer = document.getElementById("minuteContainer")
+    const hourContainer = document.getElementById("hourContainer")
+    
+    let second = 0
     let minute = 0
+    let hour = 0
 
     const interval = setInterval(() => {
-        //59
-        if (second <= 3) {
-            const newDiv = document.createElement("div")
-            newDiv.className = "second"
-            secondContainer.appendChild(newDiv)
-            second++;
-
+        if (second <= 60) {
+            addDiv(secondContainer, "second")
+            second++
         } else {
             secondContainer.innerHTML=""
-            const newDiv = document.createElement("div")
-            newDiv.className = "second"
-            secondContainer.appendChild(newDiv)
-            addMinuteDiv(minute)
+            addDiv(minuteContainer, "minute")
             second = 1
+            minute++
+
+            if(minute >= 60){
+                minuteContainer.innerHTML = ""
+                addDiv(hourContainer, "hour")
+                minute = 0
+                hour++
+
+                if(hour >= 24){
+                    window.close()
+                }
+            }
         }
     }, 1000)
 }
 
-function addMinuteDiv(minute){
-    minute++
-    console.log(minute)
-    if (minute < 60) {
-    const minuteContainer = document.getElementById("minuteContainer")
-    const newDiv = document.createElement("div")
-    newDiv.className = "minute"
-    newDiv.innerText = "minute"
-    minuteContainer.appendChild(newDiv)
 
-    } else {
-        //add hour
+function addDiv(container, className){
+    const newDiv = document.createElement("div")
+    if(className != "second"){
+        newDiv.innerText = className
     }
-    
+    newDiv.className = className
+    container.appendChild(newDiv)
+  
 }
 
     addSecondDiv()
 </script>
-</html> 
+</html>
