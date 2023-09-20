@@ -47,11 +47,11 @@ app.patch("/mountains/:id", (req, res) => {
 
   if(mountainToUpdate){
 
-      mountainToUpdate.name = body?.name ?? mountainToUpdate.name;
-      mountainToUpdate.elevation_meters = body?.elevation_meters ?? mountainToUpdate.elevation_meters;
-      mountainToUpdate.latitude = body?.latitude ?? mountainToUpdate.latitude;
-      mountainToUpdate.longitude = body?.longitude ?? mountainToUpdate.longitude;
-      mountainToUpdate.description = body?.description ?? mountainToUpdate.description;
+      mountainToUpdate.name = body?.name || mountainToUpdate.name;
+      mountainToUpdate.elevation_meters = body?.elevation_meters || mountainToUpdate.elevation_meters;
+      mountainToUpdate.latitude = body?.latitude || mountainToUpdate.latitude;
+      mountainToUpdate.longitude = body?.longitude || mountainToUpdate.longitude;
+      mountainToUpdate.description = body?.description || mountainToUpdate.description;
 
       //mountainToUpdate = {...mountainToUpdate,...req.body, id: Number(req.params.id)}
 
