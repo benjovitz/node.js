@@ -24,4 +24,4 @@ function run2(name){
 console.log(genericActionPerfomer(run, "Jonathan"))
 console.log(genericActionPerfomer(run2, "Jonathan"))
 
-console.log(genericActionPerfomer((name)=>`${name} is sleeping`, "Daniel")) 
+console.log(genericActionPerfomer((name) => `${name} is sleeping`, "Daniel")) 
