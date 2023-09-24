@@ -10,20 +10,60 @@
 </head>
 <body>
     <h1>Arrays</h1>
-   
+  
     <h2>(some) Array methods explained</h2>
     <div class="text-field">
-        Theres a bunch of array methods built into Javascript here are some i have used. <br>
-        Specific values in the array can be accessed with <b>array[index]</b>. <br>
-        Get the size of the array with <b>array.length</b> which returns an integer of the arrays length. <br>
-        Join the whole array together with <b>array.join("something between each element")</b> returns a string with the chosen separator between each element. <br>
-        Remove the last element of the array with <b>array.pop()</b> which returns the element that was removed. <br>
-        Add an element to the end of the array with <b>array.push("new element")</b> which returns an the new size of the arrray as type number. <br>
-        Remove the first element of the array with <b>array.shift()</b> and returns the element that was removed, all elements are shifted down 1 index. <br>
-        Add an element to the start of the array with and shifts all elements one index up <b>array.unshift("new element")</b> which returns an the new size of the array as type number. <br>
-        Take a slice of the array with <b>array.slice(startIndex, optionalEndIndex)</b> which returns a new array consisting of elements from the array that was sliced, from start index to end index or if no end index was set, from start index to the end of the array. This doesnt affect the old array. <br>
-        With <b>array.splice(startIndex, optinalDeleteCount, "item1", ..."itemX")</b> you can both remove and add elements to the array. The method returns an array of the removed elements. Start out by giving a startIndex, then an optional number of items to delete (0 or not given also an option). Then optional, elements to add from the start index and shift other elements that would come after the start index.
+        Theres a bunch of array methods built into Javascript here are some i have used. 
     </div>
+    <h3>array[index]</h3>
+    <div class="text-field">
+        <b>How to use:</b> array[number] <br>
+        <b>What it does:</b> gets element with given index <br>
+        <b>Returns:</b> a single element from the array || undefined
+    </div>
+    <h3>array.length</h3>
+    <div class="text-field">
+        <b>How to use:</b> array.length <br>
+        <b>What it does:</b> gives length of array <br>
+        <b>Returns:</b> number
+    </div>
+    <h3>array.join</h3>
+    <div class="text-field">
+        <b>How to use:</b> array.join(string)<br>
+        <b>What it does:</b> joins the array in a single string with chosen separator between each element<br>
+        <b>Returns:</b> string
+    </div>
+    <h3>array.pop</h3>
+    <div class="text-field">
+        <b>How to use:</b> array.pop() <br>
+        <b>What it does:</b> removes the last element of the array <br>
+        <b>Returns:</b> the removed element
+    </div>
+    <h3>array.push</h3>
+    <div class="text-field">
+        <b>How to use:</b> array.push(element) <br>
+        <b>What it does:</b> appends element to the end of the array<br>
+        <b>Returns:</b> size of array type number
+    </div>
+    <h3>array.shift</h3>
+    <div class="text-field">
+        <b>How to use:</b> array.shift() <br>
+        <b>What it does:</b> removes first element of the array and moves all other elements an index down<br>
+        <b>Returns:</b> the removed element
+    </div>
+    <h3>array.slice</h3>
+    <div class="text-field">
+        <b>How to use:</b> array.slice(startIndex, endIndex) <br>
+        <b>What it does:</b> creates new array from startIndex to endIndex or if not given, to the end of the array<br>
+        <b>Returns:</b> array
+    </div>
+    <h3>array.splice</h3>
+    <div class="text-field">
+        <b>How to use:</b> array.slice(startIndex, deleteCount, element) <br>
+        <b>What it does:</b> can both add and remove items from array. Choose startIndex from where to start count, deletecount is how many items is deleted, can be not given. Elements to add from start index and shift everything after +1 index<br>
+        <b>Returns:</b> array of removed items
+    </div>
+    <h2>Examples</h2>
     <pre>
         <code class="language-javascript line-numbers">const arr = ["Red", "Green", "Blue", "Black", "White"]
 
