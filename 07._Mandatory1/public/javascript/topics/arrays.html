@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="../../app.css">
+    <link rel="stylesheet" href="../../prism/prism.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="../../favicon-32x32.png">
+    <title>Arrays</title>
+</head>
+<body>
+    <h1>Arrays</h1>
+   
+    <h2>(some) Array methods explained</h2>
+    <div class="text-field">
+        Theres a bunch of array methods built into Javascript here are some i have used. <br>
+        Specific values in the array can be accessed with <b>array[index]</b>. <br>
+        Get the size of the array with <b>array.length</b> which returns an integer of the arrays length. <br>
+        Join the whole array together with <b>array.join("something between each element")</b> returns a string with the chosen separator between each element. <br>
+        Remove the last element of the array with <b>array.pop()</b> which returns the element that was removed. <br>
+        Add an element to the end of the array with <b>array.push("new element")</b> which returns an the new size of the arrray as type number. <br>
+        Remove the first element of the array with <b>array.shift()</b> and returns the element that was removed, all elements are shifted down 1 index. <br>
+        Add an element to the start of the array with and shifts all elements one index up <b>array.unshift("new element")</b> which returns an the new size of the array as type number. <br>
+        Take a slice of the array with <b>array.slice(startIndex, optionalEndIndex)</b> which returns a new array consisting of elements from the array that was sliced, from start index to end index or if no end index was set, from start index to the end of the array. This doesnt affect the old array. <br>
+        With <b>array.splice(startIndex, optinalDeleteCount, "item1", ..."itemX")</b> you can both remove and add elements to the array. The method returns an array of the removed elements. Start out by giving a startIndex, then an optional number of items to delete (0 or not given also an option). Then optional, elements to add from the start index and shift other elements that would come after the start index.
+    </div>
+    <pre>
+        <code class="language-javascript line-numbers">const arr = ["Red", "Green", "Blue", "Black", "White"]
+
+        console.log(arr) 
+
+        console.log(arr[2]) 
+
+        console.log(`length: ${arr.length}`)
+
+        console.log(`join method: ${arr.join(" and ")}`)
+
+        console.log(`pop method: ${arr.pop()}`)
+        console.log(arr)
+
+        console.log(`push method: ${arr.push("Pink")}`) 
+        console.log(arr)
+
+        console.log(`shift method: ${arr.shift()}`)
+        console.log(arr)
+
+        console.log(`unshift method: ${arr.unshift("Purple")}`)
+        console.log(arr)
+
+        console.log(`slice method: ${arr.slice(2, 5)}`)
+        console.log(arr)
+
+        console.log(`splice method: ${arr.splice(3, 1, "monkey business")}`)
+        console.log(arr)
+        </code>
+    </pre>
+    <pre data-output = "2-17">
+<code class="command-line language-bash">node app.js
+[ 'Red', 'Green', 'Blue', 'Black', 'White' ]
+Blue
+length: 5
+join method: Red and Green and Blue and Black and White
+pop method: White
+[ 'Red', 'Green', 'Blue', 'Black' ]
+push method: 5
+[ 'Red', 'Green', 'Blue', 'Black', 'Pink' ]
+shift method: Red
+[ 'Green', 'Blue', 'Black', 'Pink' ]
+unshift method: 5
+[ 'Purple', 'Green', 'Blue', 'Black', 'Pink' ]
+slice method: Blue,Black,Pink
+[ 'Purple', 'Green', 'Blue', 'Black', 'Pink' ]
+splice method: Black,Pink
+[ 'Purple', 'Green', 'Blue', 'monkey business', 'Pink' ]</code></pre>
+<h2>Interactive array with basic methods</h2>
+<container class="array-container" id="arrayContainer"></container>
+<container class="button-field">
+    <button id="lengthBtn">Get length</button>
+    <button id="popBtn">Pop method</button>
+    <button id="pushBtn">Push method</button>
+    <button id="shiftBtn">Shift method</button>
+    <button id="unshiftBtn">Unshift method</button>
+    
+    <input id="lengthField" type="text" readonly>
+    <input id="popField" type="text" readonly>
+    <input id="pushField" type="text">
+    <input id="shiftField" type="text" readonly>
+    <input id="unshiftField" type="text">
+</container>
+<h2>Loops</h2>
+</body>
+<script src="../../prism/prism.js"></script>
+<script src="arrays.js"></script>
+</html>

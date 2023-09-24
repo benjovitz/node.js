@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="../../app.css">
+    <link rel="stylesheet" href="../../prism/prism.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="../../favicon-32x32.png">
+    <title>js basics</title>
+</head>
+<body>
+    <h1>Javascript</h1>
+    <div class="text-field">Javascript is a language used to run code in the browser. 
+        To run javascript in our terminal we need to download node.js</div>
+    <h1>What is node.js?</h1>
+    <div class="text-field">Node.js is a tool that makes it possible to run javascript outside the browser. 
+        The engine is taken from chrome in 2009. npm (node package manager) was introduced 
+        later with the purpose of installing module to your project.</div>
+
+        
+
+        <h1>Getting node and run javascript files</h1>
+        <div class="text-field">
+            Starting out by donwloading <a href="https://nodejs.org/en/download">node.js</a> <br>
+            Lets create a js file called "app.js" and make a console.log("Hello World!") to see the output in the terminal. 
+            with node we are able to run js files locally instead of the browser with this command
+        </div>
+        <pre>app.js
+            <code class="language-javascript line-numbers">
+            console.log("Hello World!")
+            </code>
+        </pre>
+        <pre class="command-line" data-output="2-4">
+<code class="language-bash">node app.js
+Hello World!
+
+            </code>
+        </pre>
+        <h2>Types</h2>
+        <pre>
+            <code class="language-javascript line-numbers">// js types
+            const string = "Hello"
+            const number = 42
+            const boolean = true
+            const bigInt = BigInt(Number.MAX_SAFE_INTEGER) // 9007199254740991n
+            const undefinedValue = undefined
+            const nullValue = null
+            const symbol = Symbol("something") // creating unique values
+            //objects
+            const object = {key: "value"}
+            const array = [1, 2, 3]
+            const date = Date()
+            </code>
+        </pre>
+        <h2>Strings</h2>
+        <div class="text-field">
+           Strings can be concatenated with <b>+</b> as seen in the first console.log( ). <br>
+           If the string represents a number it can also be parsed as such with <b>Number</b>, seen in the second console.log( ). <br>
+           Strings are in fact an array of chars, so we can access every part of the string as an array, seen in third console.log( ). <br>
+           We can also replace values in strings, seen i fourth console.log( ).
+        </div>
+        <pre>app.js
+            <code class="language-javascript line-numbers">const numberOne = "1.10";
+            const numberOne = "1.10";
+            const numberTwo = "2.30";
+                                
+            const string = numberOne + numberTwo
+            const calculation = Number(numberOne) + Number(numberTwo)
+                                
+            console.log(string)
+            console.log(calculation)
+                                
+            const letters = "abc";
+                                
+            console.log(letters[2])
+                                
+            const fact = "daniel";
+                                
+            console.log(fact.replace("d", "D"))
+                
+            const method1 = "like this and put these ''"
+            const method2 = 'or this and put these ""'
+            const method3 = `you can put these "" '' or make
+            line changes or variables like this: ${fact}`
+                
+            console.log(method1)
+            console.log(method2)
+            console.log(method3)
+            </code>
+        </pre>
+        <pre class="command-line" data-output="2-9">
+<code class="language-bash">node app.js
+1.102.30
+3.4
+c
+Daniel
+like this and put these ''
+or this and put these ""
+you can put these "" '' or make
+line changes or variables like this: daniel</code></pre>
+</body>
+<script src="../../prism/prism.js"></script>
+</html>
