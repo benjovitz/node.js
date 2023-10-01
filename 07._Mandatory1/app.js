@@ -31,10 +31,6 @@ app.get("/javascript/arrays", (req, res) => {
     res.sendFile(path.resolve("./public/javascript/topics/arrays.html"))
 })
 
-app.get("/javascript/arrays.js", (req, res) => {
-    res.sendFile(path.resolve("./public/javascript/topics/arrays.js"))
-})
-
 
 /*---------------------------------------ROUTES-----------------------------------------------*/
 
