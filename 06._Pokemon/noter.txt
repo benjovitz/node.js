@@ -5,3 +5,5 @@ start og test behøver ikke "run" foran.
 miljø variabler er specifikt til node og ikke til browser. Der har man system at gemme ting i.
 
 cross env til at lave scripts på tværs af styresystemer. ex. "start:prod": "cross-env PORT=80 node app.js" det bruges til at definerer porte hovedsagligt
+
+SSR Fordele: sparer ressourer for client, SEO optimerering, skal kun samle en gang når serveren starter
