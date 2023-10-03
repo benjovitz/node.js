@@ -3,23 +3,24 @@ const app = express();
 
 app.use(express.static("public"));
 
-import path from "path";
-
 import { randomIntFromInterval } from "./util/randomUtil.js";
-
+import { frontpagePage, battePage, contactPage } from "./util/preparePages.js";
 
 // ====================== HTML  ======================
 
 app.get("/", (req, res) => {
-    res.sendFile(path.resolve("./public/frontpage/frontpage.html"));
+    //res.sendFile(path.resolve("./public/frontpage/frontpage.html"));
+    res.send(frontpagePage)
 });
 
 app.get("/battle", (req, res) => {
-    res.sendFile(path.resolve("./public/battle/battle.html"));
+    //res.sendFile(path.resolve("./public/battle/battle.html"));
+    res.send(battePage)
 });
 
 app.get("/contact", (req, res) => {
-    res.sendFile(path.resolve("./public/contact/contact.html"));
+    //res.sendFile(path.resolve("./public/contact/contact.html"));
+    res.send(contactPage)
 });
 
 // ====================== Routes  ======================
