@@ -1,0 +1,7 @@
+scripts er terminal kommandoer du lægger under scripts i package.json.
+De køres ved npm run <scriptnavn>
+start og test behøver ikke "run" foran.
+
+miljø variabler er specifikt til node og ikke til browser. Der har man system at gemme ting i.
+
+cross env til at lave scripts på tværs af styresystemer. ex. "start:prod": "cross-env PORT=80 node app.js" det bruges til at definerer porte hovedsagligt
