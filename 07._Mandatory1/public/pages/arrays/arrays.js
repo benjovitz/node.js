@@ -27,7 +27,7 @@ function pushArray(){
     if (array.length >= 8 ){
         document.getElementById("pushField").value = "At max capacity"
     } else {
-        const elementToPush = document.getElementById("pushField").value
+        const elementToPush = document.getElementById("pushField").value || "Random color"
         array.push(elementToPush)
         renderArray()
     }
@@ -43,7 +43,7 @@ function unshiftArray(){
     if (array.length >= 8 ){
         document.getElementById("unshiftField").value = "At max capacity"
     } else {
-        const elementToPush = document.getElementById("unshiftField").value
+        const elementToPush = document.getElementById("unshiftField").value || "Random color"
         array.unshift(elementToPush)
         renderArray()
     }

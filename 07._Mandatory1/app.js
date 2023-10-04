@@ -1,7 +1,7 @@
 import express from "express"
 import path from "path"
 
-import { homepage, javascriptTopicsPage, jsBasicsPage, declarationsPage, objectsPage, arraysPage } from "./util/preparePages.js"
+import { homepagePage, javascriptTopicsPage, jsBasicsPage, declarationsPage, objectsPage, arraysPage } from "./util/preparePages.js"
 
 export const app = express()
 app.use(express.json())
@@ -10,7 +10,7 @@ app.use(express.static("public"))
 /*---------------------------------------HTML-----------------------------------------------*/ 
 
 app.get("/", (req, res) => {
-    res.send(homepage)
+    res.send(homepagePage)
 })
 
 app.get("/javascript", (req, res) => {

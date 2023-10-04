@@ -1,0 +1,16 @@
+
+.array-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.array-container h2{
+    border-style: solid;
+    border-color: white;
+    margin: 5px;
+}
+
+.button-field{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}

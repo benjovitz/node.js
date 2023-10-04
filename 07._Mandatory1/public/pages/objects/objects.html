@@ -1,0 +1,122 @@
+
+    <h1>Objects</h1>
+    <div class="text-field">Javascript objects are initiated with curly brackets { }. <br>
+    They are used to store multiple values in a single instance in an organized way. They also align with JSON syntax which makes them very easy to work with. <br> <br>
+    Below are some examples for altering an object. <br> <br>
+    Access a single property of the object with <b>objectName.proptertyName</b>. <br>
+    Add new values with <b>objectName.newPropertyName</b>. <br>
+    All types are welcome in an js object, may they be strings, numbers, booleans, functions or arrays. Even other objects. <br> <br>
+    The specific properties can be accessed with <b>this</b> wich refers to itself. So in the function calling <b>this.name</b> return the name within the object. This helps with scoping so we dont have to use variable names from potentially other scopes. <br> <br>
+</div>
+    <pre>
+        <code class="language-javascript line-numbers">// js objects
+        const person = {
+            name: "Daniel",
+            age: 22,
+            height: 182,
+            learningLevel: "Chimp",
+            makeNoise: () => "*SCREAMING VIOLENTLY*",
+            get scream () {
+                return `*SCREAMING* "MY NAME IS ${this.name.toUpperCase()}`
+            },
+            numbersIknow: [1, 2, 3],
+            pet: {type: "Cat", name: "Bitten", age: 1},
+            winning: true
+        }
+        
+        person.age = 23 
+        console.log(person)
+        
+        console.log("learning level =", person.learningLevel)
+        
+        delete person.age
+        console.log(person)
+        
+        person.drink = "Apple juice"
+        console.log(person)
+
+        console.log(person.makeNoise())
+        console.log(person.scream)</code></pre>
+    <pre data-output = "2-40"><code class="command-line language-bash">node app.js
+{
+    name: 'Daniel',
+    age: 23,
+    height: 182,
+    learningLevel: 'Chimp',
+    makeNoise: [Function: makeNoise],
+    scream: [Getter],
+    numbersIknow: [ 1, 2, 3 ],
+    pet: { type: 'Cat', name: 'Bitten', age: 1 },
+    winning: true
+}
+    learning level = Chimp
+{
+    name: 'Daniel',
+    height: 182,
+    learningLevel: 'Chimp',
+    makeNoise: [Function: makeNoise],
+    scream: [Getter],
+    numbersIknow: [ 1, 2, 3 ],
+    pet: { type: 'Cat', name: 'Bitten', age: 1 },
+    winning: true
+}
+{
+    name: 'Daniel',
+    height: 182,
+    learningLevel: 'Chimp',
+    makeNoise: [Function: makeNoise],
+    scream: [Getter],
+    numbersIknow: [ 1, 2, 3 ],
+    pet: { type: 'Cat', name: 'Bitten', age: 1 },
+    winning: true,
+    drink: 'Apple juice'
+}
+    *SCREAMING VIOLENTLY*
+    *SCREAMING* "MY NAME IS DANIEL</code></pre>
+    <h2>⚠️ Objects Beware! ⚠️</h2>
+    <div class="text-field">
+        Types like number, strings and booleans are primitives. When you change the value of a primitive a new value is actually created instead of chaning the old one in the memory. <br> <br>
+        Objects however are complex data types. When you change an object you change the specific value in that memory address. <br>
+        That also means that if you let one object be equal to another, changes will happens to both, since they are both referencing the same address in the memory.
+    </div>
+    <pre>
+        <code class="language-javascript line-numbers">let primitive = 7
+        primitive = 10 // new memory adress
+
+        const monkey1 = {name: "Daniel", age: 23, type: "Human"}
+        const monkey2 = {name: "Hiro", age: 15, type: "Chimp"}
+
+        const monkey3 = monkey1 // same adress reference 
+
+        monkey3.age = 6
+
+        console.log("Monkey 1:", monkey1)</code></pre>
+        <pre data-output = "2-40"><code class="command-line language-bash">node app.js
+Monkey 1: { name: 'Daniel', age: 6, type: 'Human' } </code></pre>
+    <h2>Date Object</h2>
+    <div class="text-field">
+        Getting todays date can be very useful and javascript has a couple of built in function for just that! <br>
+        <b>Date()</b> returns todays date as a string. <br>
+        <b>new Date()</b> returns a date object, which has getters on properties <b>milliseconds, seconds, minutes, hours, day, month and year.</b>
+        The date object also has function called <b>toLocalDateString</b> which takes two arguments (it also sets the timezone to the useers timezone). First is the language and format of the string like "da-DK" for danish. The second argument is an object of options for the string like which values of the time to return such as only the month, day and year, and have the year only displayed with 2 digits. A timezone can also be specified.<br>
+        <b>Date.now()</b> returns the number of milliseconds elapsed since midnight, January 1, 1970. The date was choosen by the engineers of the UNIX system which started development in 1969. <br> <a href="https://en.wikipedia.org/wiki/Unix_time">source</a> <br>
+        See examples below.
+    </div>
+    <pre>
+        <code class="language-javascript line-numbers">console.log(`Date(): ${Date()}`)
+
+        console.log(`new Date(): ${new Date()}`)
+        
+        console.log(`Date.now(): ${Date.now()}`)
+    
+        console.log(new Date().toLocaleDateString("da-DK", {weekday: "long", month: "long", year: "numeric"}))
+        console.log(new Date().toLocaleDateString("da-DK", {timeZone: "UTC", hour: "numeric"}))
+        console.log(new Date().toLocaleDateString("da-DK", {hour: "numeric"}))
+            </code></pre>
+        <pre data-output = "2-40"><code class="command-line language-bash">node app.js
+Date(): Wed Oct 04 2023 14:52:53 GMT+0200 (Central European Summer Time)
+new Date(): Wed Oct 04 2023 14:52:53 GMT+0200 (Central European Summer Time)
+Date.now(): 1696423973043
+oktober 2023 onsdag
+4.10.2023 12
+4.10.2023 14 </code></pre>

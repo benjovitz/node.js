@@ -1,14 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <link rel="stylesheet" href="../../assets/css/app.css">
-    <link rel="stylesheet" href="../../assets/prism/prism.css">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/x-icon" href="../../favicon-32x32.png">
-    <title>Arrays</title>
-</head>
-<body>
     <h1>Arrays</h1>
   
     <h2>(some) Array methods explained</h2>
@@ -128,7 +117,33 @@ splice method: Black,Pink
     <input id="unshiftField" type="text">
 </container>
 <h2>Loops</h2>
-</body>
-<script src="../../assets/prism/prism.js"></script>
-<script src="/pages/javascriptTopics/arrays/arrays.js"></script>
-</html>
+<div id="text-field">
+    You often need to loop/iterate through an array and alter/remove/read specific or all elements of it. Theres a couple of ways to do that.
+    in the examples below. <br> <br>
+    <b>Map</b> will return a new array with every instance of the array haven gone through a callback function. Every instance will be altered based on the callback. In this case we add 1 to each number in the array <br> <br>
+    <b>Filter</b> will return a new array with every instance of the array haven gone through a callback function. Every instance will either stay or go based on the outcome of the callback function. In this case we filter out the even numbers <br> <br>
+    <b>Find</b> will return a single instance based on the outcome of a callback function. It will stop when it reaches a true statement. In this case it is used to find the number 7 in the array. <br> <br>
+    And last we can see the original array is unchanged
+</div>
+<pre>
+    <code class="language-javascript line-numbers">const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+    const numbersAdd = numbers.map(number => number + 1) 
+        
+    const numbersOdd = numbers.filter(number => number % 2)
+        
+    const seven = numbers.find(number => number === 7)
+        
+    console.log(numbersOdd)
+    console.log(numbersAdd)
+    console.log(seven)
+        
+    console.log(numbers)
+    </code>
+</pre>
+<pre data-output = "2-17">
+<code class="command-line language-bash">node app.js
+[ 1, 3, 5, 7, 9 ]
+[2, 3, 4,  5, 6, 7, 8, 9, 10]
+7
+[1, 2, 3, 4, 5, 6, 7, 8, 9]</code></pre>

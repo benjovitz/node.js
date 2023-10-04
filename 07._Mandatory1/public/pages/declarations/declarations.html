@@ -1,14 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <link rel="stylesheet" href="../../assets/css/app.css">
-    <link rel="stylesheet" href="../../assets/prism/prism.css">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/x-icon" href="../../favicon-32x32.png">
-    <title>Declarations</title>
-</head>
-<body>
     <h2>Declarations</h2>
     <div class="text-field">
         <b>const</b> and <b>let</b> is only available in their given scope, seen in our block scope (line 7-10) <br>
@@ -33,13 +22,10 @@
         console.log(global)  // available outside scope
         console.log(notGlobal) // ReferenceError: notGlobal is not defined
             
-        totalGlobal = "everywhere" // available in other js files
+        totalGlobal = "everywhere" // available in the whole project
             
         const array = []
             
-        array.push(1,2,3) // not reassigned
+        array.push(1,2,3) // this is possible since its not being reassigned
         </code>
     </pre>
-</body>
-<script src="../../assets/prism/prism.js"></script>
-</html>

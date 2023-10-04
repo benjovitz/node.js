@@ -1,13 +1,28 @@
-import { readPage } from "./templateEngine.js";
+import { readPage, renderPage } from "./templateEngine.js";
 
-export const homepage = readPage("./public/pages/homepage/homepage.html")
+const homepage = readPage("./public/pages/homepage/homepage.html")
 
-export const javascriptTopicsPage = readPage("./public/pages/javascriptTopics/topics/topics.html")
+export const homepagePage = renderPage(homepage, {tabTitle: "Home"})
 
-export const jsBasicsPage = readPage("./public/pages/javascriptTopics/jsbasics/jsbasics.html")
+const javascriptTopics = readPage("./public/pages/topics/topics.html")
 
-export const declarationsPage = readPage("./public/pages/javascriptTopics/declarations/declarations.html")
+export const javascriptTopicsPage = renderPage(javascriptTopics, {tabTitle: "Javascript Topics"})
 
-export const objectsPage = readPage("./public/pages/javascriptTopics/objects/objects.html")
+const jsbasics = readPage("./public/pages/jsbasics/jsbasics.html")
 
-export const arraysPage = readPage("./public/pages/javascriptTopics/arrays/arrays.html")
+export const jsBasicsPage = renderPage(jsbasics, {tabTitle: "Javascript/Node Basics"})
+
+const declarations = readPage("./public/pages/declarations/declarations.html")
+
+export const declarationsPage = renderPage(declarations, {tabTitle: "Delcarations"})
+
+const objects = readPage("./public/pages/objects/objects.html")
+
+export const objectsPage = renderPage(objects, {tabTitle: "Javascript Objects"})
+
+const arrays = readPage("./public/pages/arrays/arrays.html")
+
+export const arraysPage = renderPage(arrays, {
+    tabTitle: "Arrays", cssLinks:'<link rel="stylesheet" href="/pages/arrays/arrays.css">',
+    scriptLinks: '<script src="/pages/arrays/arrays.js"></script>' 
+})
