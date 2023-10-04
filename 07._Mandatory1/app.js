@@ -1,6 +1,8 @@
 import express from "express"
 import path from "path"
 
+import { homepage, javascriptTopicsPage, jsBasicsPage, declarationsPage, objectsPage, arraysPage } from "./util/preparePages.js"
+
 export const app = express()
 app.use(express.json())
 app.use(express.static("public"))
@@ -8,27 +10,27 @@ app.use(express.static("public"))
 /*---------------------------------------HTML-----------------------------------------------*/ 
 
 app.get("/", (req, res) => {
-    res.sendFile(path.resolve("./public/homepage.html"))
+    res.send(homepage)
 })
 
 app.get("/javascript", (req, res) => {
-    res.sendFile(path.resolve("./public/javascript/topics.html"))
+    res.send(javascriptTopicsPage)
 })
 
 app.get("/javascript/basics", (req, res) => {
-    res.sendFile(path.resolve("./public/javascript/topics/jsbasics.html"))
+    res.send(jsBasicsPage)
 })
 
 app.get("/javascript/declarations", (req, res) => {
-    res.sendFile(path.resolve("./public/javascript/topics/declarations.html"))
+    res.send(declarationsPage)
 })
 
 app.get("/javascript/objects", (req, res) => {
-    res.sendFile(path.resolve("./public/javascript/topics/objects.html"))
+    res.send(objectsPage)
 })
 
 app.get("/javascript/arrays", (req, res) => {
-    res.sendFile(path.resolve("./public/javascript/topics/arrays.html"))
+    res.send(arraysPage)
 })
 
 

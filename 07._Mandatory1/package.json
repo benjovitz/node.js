@@ -8,6 +8,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "cross-env": "^7.0.3",
     "express": "^4.18.2"
+  },
+  "scripts": {
+    "start:dev": "cross-env PORT=8080 nodemon app.js",
+    "start:prod": "cross-env PORT=80 node app.js"
   }
 }
