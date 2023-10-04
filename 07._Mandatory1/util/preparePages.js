@@ -26,3 +26,11 @@ export const arraysPage = renderPage(arrays, {
     tabTitle: "Arrays", cssLinks:'<link rel="stylesheet" href="/pages/arrays/arrays.css">',
     scriptLinks: '<script src="/pages/arrays/arrays.js"></script>' 
 })
+
+const functions = readPage("./public/pages/functions/functions.html")
+
+export const functionsPage = renderPage(functions, {tabTitle: "Javascript Functions"})
+
+const firstExpressServer = readPage("./public/pages/firstExpressServer/firstExpressServer.html")
+
+export const firstExpressServerPage = renderPage(firstExpressServer, {tabTitle: "My First Express Server"})

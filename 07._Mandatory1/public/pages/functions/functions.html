@@ -1,0 +1,49 @@
+<h1>Functions</h1>
+<div class="text-field">
+    Functions allows write logic down once, instead of repeating ourselves. 
+    This makes the code more maintainable, reuseable and modular. <br>
+    Hoisting means that our functions will be read first, wich allows us to call it before initialization. Const and let are hoisted but not initialized. They need to be declared before usage. Var is hoisted and initialized but bleeds to other scopes, so could be a bit tricky to use. <br>
+    Callback is when a function is taken as a parameter in another function. <br>
+    The return is the last thing happening in the function, code after the return statement wont be executed. the return statement is that function delivers back to you.
+    Heres a couple of ways to write functions in javascript.
+</div>
+
+<pre>
+    <code class="language-javascript line-numbers">//Hoisting
+    console.log(delcaredFunction("Dan","iel"))
+    
+    hoisting = (parameter1, parameter2) => {
+        return parameter1 + parameter2
+    }
+    
+    console.log(arrowFunction("Dan", "iel")) // ReferenceError: Cannot access 'arrowFunction' before initialization
+    
+    var hoisting // hoisted and initialized
+    // let hoisting // hoisted but not initialized ReferenceError: Cannot access 'arrowFunction' before initialization
+    
+    
+    
+    const withConstructer = new Function("parameter1", "parameter2", "return parameter1 + parameter2")
+    
+    function delcaredFunction(parameter1, parameter2){
+        return parameter1 + parameter2
+    }
+    
+    const expressionWithanonymousFunction = function(parameter1, parameter2){
+        return parameter1 + parameter2
+    }
+    
+    const arrowFunction = (parameter1, parameter2) => {
+        return parameter1 + parameter2
+    }
+    
+    
+    //callback
+    function functionWithCallback(callback, parameter1, parameter2) {
+        return callback(parameter1, parameter2)
+    }
+    
+    console.log(functionWithCallback(arrowFunction, "Dan", "iel"))
+
+    </code>
+</pre>

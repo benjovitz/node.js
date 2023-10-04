@@ -1,7 +1,7 @@
 import express from "express"
 import path from "path"
 
-import { homepagePage, javascriptTopicsPage, jsBasicsPage, declarationsPage, objectsPage, arraysPage } from "./util/preparePages.js"
+import { homepagePage, javascriptTopicsPage, jsBasicsPage, declarationsPage, objectsPage, arraysPage, functionsPage, firstExpressServerPage } from "./util/preparePages.js"
 
 export const app = express()
 app.use(express.json())
@@ -31,6 +31,14 @@ app.get("/javascript/objects", (req, res) => {
 
 app.get("/javascript/arrays", (req, res) => {
     res.send(arraysPage)
+})
+
+app.get("/javascript/functions", (req, res) => {
+    res.send(functionsPage)
+})
+
+app.get("/firstExpressServer", (req, res) => {
+    res.send(firstExpressServerPage)
 })
 
 
