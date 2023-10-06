@@ -18,13 +18,57 @@ Resolving deltas: 100% (683/683), done.
 <h2>Pushing to a repository</h2>
 <div class="text-field">
     We now have a repository with where to push is already defined in its .git folder. So pushing to it is easy! <br>
-    <b>git add "filename"</b> to add a specific file to your commit or <b>git add -A</b> to add all changes. <br>
-     
+    <b>git add "filename"</b> to add a specific file to your staging area or <b>git add -A</b> to add all changes. <br>
+    <b>git commit -m "message here"</b> to create a commit from the staging area, if no <b>-m (message)</b> is included you will be lead to VI or VIM to add a message. <br>
+    <b>git push</b> to push to the origin.
 </div>
-
-
-
-<pre data-output="2-17">
-<code class="command-line language-bash"> git add -A
-        </code>
+<pre data-output="3-6, 8-16">
+<code class="command-line language-bash">git add -A
+git commit -m "commit message"
+[main 370b4ed] working on git basics
+5 files changed, 111 insertions(+), 2 deletions(-)
+create mode 100644 test/app.js
+create mode 100644 test/README.md
+git push
+Enumerating objects: 22, done.
+Counting objects: 100% (22/22), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (11/11), done.
+Writing objects: 100% (13/13), 2.68 KiB | 2.68 MiB/s, done.
+Total 13 (delta 6), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (6/6), completed with 6 local objects.
+To https://github.com/username/project
+e97b500..370b4ed  main -> main</code>
     </pre>
+
+<h2>Pushing to a new repository</h2>
+<div class="text-field">
+    You now have a project on your computer but need to push that code to a repository not yet created. <br>
+    Create the repository on github or other git sites. <br>
+    <b>git init</b> to initialize a .git folder in your project, which holds all the information on where to push, which branch you are on and so on. <br>
+    <b>git add -A</b> adding all changes to the staging area like before. <br>
+    <b>git commit -m "message"</b> creating a commit. <br>
+    <b>git remote add origin https://github.com/username/newProject</b> adding our origin place for pushing and pulling <br>
+    <b>git branch -M main</b> renaming default branch to main instead of master. <br>   
+    <b>git push -u origin main</b> first push needs to be like this. The <b>-u</b> is for setting up the upstream to origin (which we specified in the line above, like a variable) and main to specify the branch.
+</div>
+<pre data-output="2, 4-7, 10-49">
+<code class="command-line language-bash">git init
+Initialized empty Git repository in /home/daniel/kode/test/.git/
+git add -A
+git commit -m "testing"
+[master (root-commit) c64d4dc] testing
+1 file changed, 0 insertions(+), 0 deletions(-)
+create mode 100644 text.txt
+git branch -M main
+git remote add origin https://github.com/benjovitz/asdas.git
+git push -u origin main
+Enumerating objects: 3, done.
+Counting objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 207 bytes | 207.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://github.com/benjovitz/asdas.git
+ * [new branch]      main -> main
+branch 'main' set up to track 'origin/main'.</code>
+        </pre>
+    

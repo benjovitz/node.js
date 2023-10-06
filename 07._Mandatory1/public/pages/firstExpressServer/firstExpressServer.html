@@ -1,1 +1,35 @@
 <h1>Express server</h1>
+<h2>package.json</h2>
+<div class="text-field">
+    The entry point for a node project is package.json. We can manually create a <b>package.json</b> file and add a dependency like below.
+    Then typing <b>npm install (npm i)</b> will install the given dependencies. <br>
+    We can also skip creating the file manually and write <b>npm install "dependencyName"</b>, that will automaticly create a package.json file like the one below. <br>
+    This will add a folder called node_modules, which is the code needed to run our dependencies, the dependencies' dependencies if u will.
+</div>
+
+<pre>
+    <code class="language-json line-numbers">{
+        "dependencies": {
+            "express": "^4.18.2"
+        }
+    }
+    
+    </code>
+</pre>
+
+<h2>Express</h2>
+<div class="text-field">
+    Express is a dependency that helps us quickly setup a HTTP server. <br>
+    Setting up the express server is really easy! <br>
+    
+    Below is the bare minimum to get a express server up and running. <br>
+    First we import express in line 1. <br>
+    Second we initiate express and store it in a variable called <b>app</b> in line 2 <br>
+    And last, we make the app listen on a specific port, in this case <b>8080</b> which is the developer port for HTTP.
+</div>
+<pre>
+    <code class="language-javascript line-numbers">const express = require("express")
+    const app = express()
+
+    app.listen(8080)</code>
+</pre>
