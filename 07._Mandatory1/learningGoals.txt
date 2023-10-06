@@ -1,0 +1,70 @@
+- Can work with Git in the terminal.
+
+- Understand and work with data types in Javascript.
+
+- Can explain what Node.js is and how to run files with it.
+
+- Knows the existing data types in Javascript and can work with them.
+
+- Understands type coercion and strategies to avoid it.
+
+- Can design a REST API.
+
+- Knows the two REST conventions we will follow and why they exist and what they map to. (See the description in the Aber assignment). 
+
+- Understand scoping in Javascript and know to always use const if you can get away with it otherwise let.
+
+- Understand advanced things about functions in Javascript
+
+- Can write callback functions with different syntax.
+
+- Understands Package.json and can set it up by hand.
+
+- Can create a server instance with Express from memory.
+
+- Understands how to send data with GET requests over HTTP and knows how to do it in Express.
+
+- Understands node_modules. 
+
+- Understands the use case for Nodemon and its limitation for development.
+
+- Can use loop methods (+map, +filter, %reduce). Can choose the right one at the appropriate time.
+
+- Understands why a functional approach to loops is to be preferred and how to implement it without side effects.
+
+- Can use the right terminology when it comes to the different parts of an URL.
+
+- Can make a POST request and handle it in Express.
+
+- Understands the need for body parsing and how to do it in Express. 
+
+- Can create a full CRUDable REST API that follows conventions.
+
+- Can write a fetch request without hesitation.
+
+- Can get the Date in Javascript. 
+
+- Can work with both types of import/export in HTML.
+
+- Can import/export in both ways in Node.js
+
+- Understands the security need for serving static files and can do it in Express.
+
+- XSS: Understands the problem and how to avoid it. 
+
+- Understands the difference between client-side redirection and server-side.
+
+- Can recount the number of ways and approaches to redirection.
+
+- Can argue for a better way to structure the frontend (assets, pages) and how to structure HTML. 
+
+- Can define and run scripts
+
+- Knows how to define environment variables natively in Node.js.
+
+- Understands the arguments for and against SSR vs. CSR when it comes to:
+
+1. time
+2. ressources spent (duration, when and where)
+3. and SEO.
+ 

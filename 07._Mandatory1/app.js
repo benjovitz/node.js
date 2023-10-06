@@ -1,7 +1,7 @@
 import express from "express"
 import path from "path"
 
-import { homepagePage, javascriptTopicsPage, jsBasicsPage, declarationsPage, objectsPage, arraysPage, functionsPage, firstExpressServerPage } from "./util/preparePages.js"
+import { homepagePage, javascriptTopicsPage, jsBasicsPage, declarationsPage, objectsPage, arraysPage, functionsPage, firstExpressServerPage, gitBasicsPage } from "./util/preparePages.js"
 
 export const app = express()
 app.use(express.json())
@@ -37,6 +37,10 @@ app.get("/javascript/functions", (req, res) => {
     res.send(functionsPage)
 })
 
+app.get("/gitBasics", (req, res) => {
+    res.send(gitBasicsPage)
+})
+
 app.get("/firstExpressServer", (req, res) => {
     res.send(firstExpressServerPage)
 })
@@ -44,4 +48,4 @@ app.get("/firstExpressServer", (req, res) => {
 
 /*---------------------------------------ROUTES-----------------------------------------------*/
 
-app.listen(8080)
+app.listen(process.env.PORT)

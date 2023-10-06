@@ -31,6 +31,10 @@ const functions = readPage("./public/pages/functions/functions.html")
 
 export const functionsPage = renderPage(functions, {tabTitle: "Javascript Functions"})
 
+const gitBasics = readPage("./public/pages/gitBasics/gitBasics.html")
+
+export const gitBasicsPage = renderPage(gitBasics, {tabTitle: "Git Terminal"})
+
 const firstExpressServer = readPage("./public/pages/firstExpressServer/firstExpressServer.html")
 
 export const firstExpressServerPage = renderPage(firstExpressServer, {tabTitle: "My First Express Server"})
