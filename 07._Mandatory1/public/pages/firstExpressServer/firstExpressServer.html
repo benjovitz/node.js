@@ -33,3 +33,78 @@
 
     app.listen(8080)</code>
 </pre>
+<h2>Routes</h2>
+<div class="text-field">
+    Lets make a route. We use the <b>app</b> variable to call <b>app.get()</b> <br>
+    The string <b>"/getSimpleResponse"</b> is the path to the endpoint, so the full url would be <b>http://localhost:8080/getSimpleResponse</b> <br>
+    Then we use an <b>arrow function</b> to declare our <b>request</b> and <b>response</b>. The request would come from the client, and the repsonse from the server. 
+    So when we use <b>response.send("hello")</b> we are telling the server that the response back should be a JSON object (because of the curly brackets {})
+    and should have the key of <b>data</b> and value of <b>"First endpoint"</b>.
+</div>
+<pre>
+    <code class="language-javascript line-numbers">const express = require("express")
+    const app = express()
+
+    app.get("/getSimpleResponse", (request, response) => {
+        res.send({data: "Hello there"})
+    })
+
+    app.listen(8080)</code>
+</pre>
+
+<button id="getSimpleRes">get response</button> <button id="getSimpleRes_clear">clear</button>
+<pre>
+    <code id="getSimpleRes_res" class="language-json"></code>
+</pre>
+
+<h2>Parameters</h2>
+<div class="text-field">
+    We can add parameter to our endpoint (like in functions) buy using <b>:parameterName</b>. <br>
+    This allows the client to send in information with the <b>get request</b>. We can look for a specific one by setting the parameter name. But they can actually send in any parameter they like. <br>
+    We access the <b>name parameter</b> by calling req.params.name because its a <b>object</b> we get send via req.params. From now on I am going to encapsulate the JSON response inside of a data object. <br>
+    And from now on i will name <b>request</b> and <b>response</b>, <b>req</b> and <b>res</b>
+</div>
+<pre>
+    <code class="language-javascript line-numbers">const express = require("express")
+    const app = express()
+
+    app.get("/getReponseWithParameter/:name", (req, res) => {
+        const name = req.params.name
+        res.send({data:{
+            message: `Hello there ${name}`,
+            params: req.params
+            }
+        })
+    })
+
+    app.listen(8080)</code>
+</pre>
+
+<button id="getResponseWithParameter">Send name and get reponse</button>
+<input id="getResponseWithParameter_name" type="text" placeholder="enter name"> 
+<input id="getResponseWithParameter_res" type="text" readonly placeholder="response">
+
+<pre>
+    <code id="getResponseWithParameter_json" class="language-json"></code>
+</pre>
+
+<h2>Post endpoint</h2>
+<div class="text-field">
+    Making a post request allows the client to send an object to the server. <br>
+    We can access it by calling <b>req.body</b>.
+</div>
+<pre>
+    <code class="language-javascript line-numbers">const express = require("express")
+    const app = express()
+
+    app.post("/simplePostEndpoint", (req, res) => {
+        res.send({data: req.body})
+    })
+
+    app.listen(8080)</code>
+</pre>
+<button id="simplePostEndpoint">sent post request</button>
+<input id="simplePostEndpoint_value" type="text" placeholder="send as value">
+<pre>
+    <code id="simplePostEndpoint_res" class="language-json"></code>
+</pre>

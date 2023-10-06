@@ -48,4 +48,22 @@ app.get("/firstExpressServer", (req, res) => {
 
 /*---------------------------------------ROUTES-----------------------------------------------*/
 
+app.get("/getSimpleResponse", (req, res) => {
+    res.send({data: "Hello there"})
+})
+
+app.get("/getResponseWithParameter/:name", (req, res) => {
+    const name = req.params.name
+    res.send({data:{
+        message: `Hello there ${name}`,
+        params: req.params
+    
+    }
+    })
+})
+
+app.post("/simplePostEndpoint", (req, res) => {
+    res.send({data: req.body})
+})
+
 app.listen(process.env.PORT)
