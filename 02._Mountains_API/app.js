@@ -7,7 +7,6 @@ app.get("/mountains", (req, res) => {
    res.send({data: mountains})
 })
 
-
 app.get("/mountains/:id", (req, res) => {
 
     const mountain = findMountain(Number(req.params.id))
