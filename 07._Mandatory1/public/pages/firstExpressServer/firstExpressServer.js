@@ -4,7 +4,7 @@ document.getElementById("getResponseWithParameter").onclick = getRepsonseWithPar
 document.getElementById("simplePostEndpoint").onclick = simplePostEndpoint
 
 async function getSimpleResponse(){
-    const response = (await fetch("/getSimpleResponse"))
+    const response = (await fetch("/api/getSimpleResponse"))
     const result = await response.json()
     document.getElementById("getSimpleRes_res").innerText = `${JSON.stringify(result)}`
 }
@@ -15,7 +15,7 @@ function clearSimpleResponse(){
 
 async function getRepsonseWithParameter(){
     const name = document.getElementById("getResponseWithParameter_name").value || "Stranger"
-    const response = await fetch(`/getResponseWithParameter/${name}`)
+    const response = await fetch(`/api/getResponseWithParameter/${name}`)
     const result = await response.json()
     document.getElementById("getResponseWithParameter_res").value = `${JSON.stringify(result.data.message)}`
     document.getElementById("getResponseWithParameter_json").innerText = JSON.stringify(result)
@@ -24,7 +24,7 @@ async function getRepsonseWithParameter(){
 async function simplePostEndpoint(){
     const body = {}
     body.key = document.getElementById("simplePostEndpoint_value").value || "some value"
-    const response = await fetch("/simplePostEndpoint",{
+    const response = await fetch("/api/simplePostEndpoint",{
         method: "POST",
         headers:{
             "content-type": "application/json"

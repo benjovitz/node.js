@@ -1,4 +1,4 @@
-export const mountains = [
+const mountains = [
     {
       "id": 1,
       "name": "Mount Fuji",
@@ -40,3 +40,30 @@ export const mountains = [
       "description": "Mount Denali (formerly McKinley) in Alaska, USA, is North America's highest peak. It's known for extreme cold, strong winds, and challenging climbs."
     }
   ]
+
+   
+ function findMountain(id){
+ 
+  if(!isNaN(id)){
+
+  const mountain = mountains.find((mountain) => mountain.id === id)
+
+  return mountain
+  } 
+  return null
+}
+
+function checkFullBody(body){
+if (
+  body.name &&
+  body.elevation_meters &&
+  body.latitude &&
+  body.longitude &&
+  body.description
+){
+  return true
+}
+return false
+}
+
+export { mountains, checkFullBody, findMountain }
