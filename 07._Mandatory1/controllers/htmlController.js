@@ -1,5 +1,18 @@
 import { Router } from "express";
-import { homepagePage, javascriptTopicsPage, jsBasicsPage, declarationsPage, objectsPage, arraysPage, functionsPage, firstExpressServerPage, gitBasicsPage } from "../util/preparePages.js"
+import { 
+    homepagePage, 
+    javascriptTopicsPage, 
+    jsBasicsPage, 
+    declarationsPage, 
+    objectsPage, 
+    arraysPage, 
+    functionsPage, 
+    firstExpressServerPage, 
+    gitBasicsPage, 
+    firstRestApiPage,
+    apiExamplePage,
+    frontendJsPage 
+} from "../util/preparePages.js"
 
 const router = Router()
 
@@ -37,6 +50,18 @@ router.get("/gitBasics", (req, res) => {
 
 router.get("/firstExpressServer", (req, res) => {
     res.send(firstExpressServerPage)
+})
+
+router.get("/firstRestApi", (req, res) => {
+    res.send(firstRestApiPage)
+})
+
+router.get("/apiExample", (req, res) => {
+    res.send(apiExamplePage)
+})
+
+router.get("/frontendJs", (req, res) => {
+    res.send(frontendJsPage)
 })
 
 export default router

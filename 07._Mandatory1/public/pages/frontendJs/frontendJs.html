@@ -1,0 +1,87 @@
+<h1>Frontend JavaSript</h1>
+<h2><a href="/apiExample">API used for this example</a></h2>
+
+<h2>Fetch</h2>
+<div class="text-field">
+    Fetch is an built in api in JavaSript which can gather a ressource from outside of the project. It returns a <b>promise</b>
+    that reads the data in chunks. <br>
+    For the next step we turn the promise into json for us to work with. <br>
+    And last we access it by using <b>result.data</b> because our mountains are wrapped in a data object. <br>
+    We use <b>.catch</b> for error handling
+    Open developer tools to see. (right-click inspect or f12).
+</div>
+<pre>frontendJs.js
+    <code class="language-javascript line-numbers">console.log("fetch:", fetch("/api/mountains"))
+
+    fetch("/api/mountains")
+    .then((response) => console.log("fetch to json:", response.json()))
+
+    fetch("/api/mountains")
+    .then((response) => response.json())
+    .then((result) => console.log("response to data:", result.data))
+    .catch((error) => console.log(error))
+
+    fetch("/api/mountains2")
+    .then((response) => response.json())
+    .then((result) => console.log("response to data:", result.data))
+    .catch((error) => console.log(error))
+    </code>
+</pre>
+<h2>Async Fetch</h2>
+<div class="text-field">
+    We can make use of the an async function to make the code look cleaner and remove <b>.then</b>. <br>
+    We have to make our function <b>async</b> then we need to <b>await</b> the functions that would return a promise.
+
+</div>
+<pre>frontendJs.js
+    <code class="language-javascript line-numbers">async function getMountains(){
+        const response = await fetch("/api/mountains")
+        console.log("async response", response)
+        
+        const result = await response.json()
+        console.log("async data response", result.data)
+    }
+    
+    getMountains()
+    </code>
+</pre>
+
+<h2>DOM Manipulation</h2>
+<div class="text-field">
+To manipulate the DOM (Document Object Model, where all the HTML is stored),
+We can make use of <b>document</b> to get specific element from our html page. <br>
+I use <b>document.getElementById("idname")</b> to get the specific button and set a onclick event to be equal a function. <br>
+Then i use the <b>map</b> function to alter every mountain to a string with html elements so they can be displayed. <br>
+I call the <b>renderMountains</b> functions which takes one parameter. I parse the mountains array.
+Then i use the <b>join</b> function to turn the array into a single string joined by nothing, hence <b>join("")</b>. <br>
+Then i set the <b>mountainContainer's</b> innerHTML to the string just created.
+
+</div>
+<pre>frontendJs.js
+    <code class="language-javascript line-numbers">document.getElementById("getMountains_btn").onclick = getMountains
+    async function getMountains(){
+        const response = await fetch("/api/mountains")
+        
+        const result = await response.json()
+        
+        renderMountains(result.data)
+    }
+        
+        
+    function renderMountains(mountains){
+        const mountainString = mountains.map(mountain => 
+        `&lt;div class="mountain"&gt;${mountain.id}&lt;h4&gt;${mountain.name}&lt;/h4&gt;&lt;/div&gt;
+                
+        ).join("")
+        
+        document.getElementById("mountainContainer").innerHTML = mountainString  
+    }</code>
+</pre>
+<pre>
+    <code class="language-html line-numbers">&lt;button id="getMountains_btn"&gt;get mountains&lt;/button&gt;
+    &lt;container id="mountainContainer" class="mountain-grid"&gt;
+    &lt;/container&gt;</code>   
+</pre>
+<button id="getMountains_btn">get mountains</button>
+<container id="mountainContainer" class="mountain-grid">
+</container>

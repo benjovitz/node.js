@@ -1,7 +1,7 @@
-import express from "express"
+import Router from "express"
 import { mountains, checkFullBody, findMountain } from "../util/mountains.js"
 
-const router = express.Router()
+const router = Router()
 
 router.get("/mountains", (req, res) => {
     res.send({data: mountains})
@@ -40,9 +40,6 @@ if(mountainToUpdate){
 
     mountainToUpdate.name = body?.name ?? mountainToUpdate.name
     mountainToUpdate.elevation_meters = body?.elevation_meters ?? mountainToUpdate.elevation_meters
-    mountainToUpdate.latitude = body?.latitude ?? mountainToUpdate.latitude
-    mountainToUpdate.longitude = body?.longitude ?? mountainToUpdate.longitude
-    mountainToUpdate.description = body?.description ?? mountainToUpdate.description
 
     res.sendStatus(201)
 } else {
@@ -59,11 +56,9 @@ const body = req.body
 
 if(mountain){
     if(checkFullBody(body)){
+
     mountain.name = body.name
-    mountain.elevation_meters = body.elevation_meters
-    mountain.latitude = body.latitude
-    mountain.longitude = body.longitude
-    mountain.description = body.description
+    mountain.elevation_meters = body.elevation_meters 
 
     res.sendStatus(200)
     } else{

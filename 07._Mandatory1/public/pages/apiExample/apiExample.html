@@ -1,0 +1,142 @@
+<pre>app.js
+    <code class="language-javascript line-numbers">import express from "express"
+    import { mountains, checkFullBody, findMountain } from "../util/mountains.js"
+    
+    const app = express()
+    
+    app.get("/mountains", (req, res) => {
+        res.send({data: mountains})
+    })
+         
+    app.get("/mountains/:id", (req, res) => {
+        const mountain = findMountain(Number(req.params.id))
+        mountain ? res.send({data: mountain}) : res.sendStatus(404)
+    })
+          
+    app.post("/mountains", (req, res) => {
+        
+        const body = req.body
+        
+        if(checkFullBody(body)){
+            const lastId = mountains[mountains.length - 1].id
+            const newMountain = body
+            newMountain.id = lastId + 1
+            
+            mountains.push(newMountain)
+        
+            res.sendStatus(201)
+        } else {
+            res.status(406).send({message: "Need a full body"})
+        }
+    })
+        
+    app.patch("/mountains/:id", (req, res) => {
+        const body = req.body
+        const mountainToUpdate = findMountain(Number(req.params.id))
+        
+        if(mountainToUpdate){
+            mountainToUpdate.name = body?.name ?? mountainToUpdate.name
+            mountainToUpdate.elevation_meters = body?.elevation_meters ?? mountainToUpdate.elevation_meters
+        
+            res.sendStatus(201)
+
+        } else {
+
+            res.sendStatus(404)
+        }
+    })
+        
+    app.put("/mountains/:id", (req, res) => {
+        const mountain = findMountain(Number(req.params.id))
+        
+        const body = req.body
+        
+        if(mountain){
+            if(checkFullBody(body)){
+        
+            mountain.name = body.name
+            mountain.elevation_meters = body.elevation_meters 
+            
+            res.sendStatus(200)
+            } else{
+            res.status(406).send({message: "Need a full body"})
+            }   
+        } else {
+            res.sendStatus(404)
+        }
+        
+    })
+        
+    app.delete("/mountains/:id", (req, res) => {
+        const id = Number(req.params.id)
+        const mountainIndex = mountains.findIndex(mountain => mountain.id === id)
+        
+        if(mountainIndex !== -1){
+            mountains.splice(mountainIndex, 1)
+            res.send(200)
+        
+        } else {
+            res.sendStatus(404)
+        }
+    })
+        
+    app.listen(8080)
+
+    </code>
+</pre>
+
+<pre>mountains.js
+    <code class="language-javascript line-numbers">const mountains = [
+        {
+          "id": 1,
+          "name": "Mount Fuji",
+          "elevation_meters": 3776,
+        },
+        {
+          "id": 2,
+          "name": "Mount Everest",
+          "elevation_meters": 8848,
+        },
+        {
+          "id": 3,
+          "name": "Kilimanjaro",
+          "elevation_meters": 5895,
+        },
+        {
+          "id": 4,
+          "name": "Matterhorn",
+          "elevation_meters": 4478,
+          },
+        {
+          "id": 5,
+          "name": "Denali",
+          "elevation_meters": 6190,
+        }
+      ]
+    
+       
+     function findMountain(id){
+     
+      if(!isNaN(id)){
+    
+      const mountain = mountains.find((mountain) => mountain.id === id)
+    
+      return mountain
+      } 
+      return null
+    }
+    
+    function checkFullBody(body){
+    if (
+      body.name &&
+      body.elevation_meters
+    ){
+      return true
+    }
+    return false
+    }
+    
+    export { mountains, checkFullBody, findMountain }
+        
+    </code>
+</pre>

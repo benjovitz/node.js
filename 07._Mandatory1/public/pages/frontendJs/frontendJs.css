@@ -1,0 +1,17 @@
+.mountain-grid{
+display: grid;
+grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}
+
+.mountain {
+background-image: url("https://t4.ftcdn.net/jpg/01/94/43/77/360_F_194437706_Bt2GbkOfdUhXvgaU1fnxRmDFUydbfsRg.jpg");
+background-size: contain;
+min-height: 5vh;
+margin: 5px;
+
+}
+
+.mountain h4{
+    position: relative;
+    bottom: 0;
+}

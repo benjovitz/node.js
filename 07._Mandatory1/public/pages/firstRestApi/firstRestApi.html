@@ -1,0 +1,92 @@
+<h1>REST</h1>
+
+<h2>Rest conventions</h2>
+<div class="text-field">
+    There are some REST conventions to follow to make sure the is consitency in different REST api's. <br>
+    <h3>Order</h3>
+    The order of the endpoints in the specific app is to make it easy for developers to find a specific endpoint because they know where to look for it.
+    The order is as follows: <br>
+    <h4>get</h4>
+    Which is used to get information from the server. The only info the client can send is via parameters.
+    <h4>post</h4>
+    Which is used to create new instances.
+    <h4>patch</h4>
+    Which is used to update one or more properties of a single instance.
+    <h4>put</h4>
+    Which is used to update all of the properties of a single instance.
+    <h4>delete</h4>
+    Which is used to delete a single instance.
+    <h3>Naming</h3>
+    Lets say we have a database of octopuses. The endpoint name would reflect what entity we are affecting and it should be plural.
+    <h4>get: /octopuses</h4>
+    <h4>post: /octopuses</h4>
+    <h4>patch: /octopuses/:id</h4>
+    <h4>put: /octopuses/:id</h4>
+    <h4>delete: /octopuses/:id</h4>
+</div>
+
+<h2>nodemon</h2>
+<div class="text-field">
+    Nodemon is a tool that will listen to changes in specific file extensions and restart the server on those changes. 
+    What file extensions nodemon should listen to can be set in a nodemon.json file.
+</div>
+<pre>nodemon.json
+<code class="language-json line-numbers">{
+    "ext" : "html,js,json"
+}
+     
+    </code>
+</pre>
+
+<h2>package.json part 2</h2>
+<div class="text-field">
+    We can quickly setup a node project by running the command <b>npm init</b> it then asks you to fill out project name, packagename, package version 
+    and the other things it will add to the package.json. It will look like the one below with not modifications. <br>
+    It adds a bunch of properties, some which are pretty self explanitory. <br>
+    <h4>Scripts</h4>
+    We can setup up custom scripts to run commands via <b>npm</b>, i have added the start:script script. <br>
+    To run it, we will need to write <b>npm run start:script</b>. <br>
+    Scripts which a named <b>start, test and build</b> doesnt need run before it. The reason we need run before it, is because we can name them anything. 
+    So we could name a script install which conflicts with<b>npm install</b>. <br>
+    I have also added <b>type: module</b>. The default is <b>type: commonjs</b>. 
+    There is a difference in how to import with the two types. See examples below. <br>
+</div>
+<pre>package.json
+<code class="language-json line-numbers">{
+    "name": "node",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "type": "module",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start:script": "node ./app.js"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC"
+}</code>
+</pre>
+
+<pre>export.js
+    <code class="language-javascript line-numbers">const exportThis = "EXPORT ME!"
+
+    //commonjs export
+    module.exports = {
+        exportThis
+    }
+    //module export
+    export { exportThis }
+</code>
+</pre>
+
+<pre>import.js
+    <code class="language-javascript line-numbers">//commonjs import
+    const importedValue = require("./export.js")
+
+    //module import
+    import {exportThis} from "./export.js"
+</code>
+</pre>
+
+<h2><a href="/apiExample">Full REST API example</a></h2>

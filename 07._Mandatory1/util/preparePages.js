@@ -23,7 +23,8 @@ export const objectsPage = renderPage(objects, {tabTitle: "Javascript Objects"})
 const arrays = readPage("./public/pages/arrays/arrays.html")
 
 export const arraysPage = renderPage(arrays, {
-    tabTitle: "Arrays", cssLinks:'<link rel="stylesheet" href="/pages/arrays/arrays.css">',
+    tabTitle: "Arrays", 
+    cssLinks:'<link rel="stylesheet" href="/pages/arrays/arrays.css">',
     scriptLinks: '<script src="/pages/arrays/arrays.js"></script>' 
 })
 
@@ -41,4 +42,20 @@ export const firstExpressServerPage = renderPage(firstExpressServer,
     {
         tabTitle: "My First Express Server",
         scriptLinks: '<script src="/pages/firstExpressServer/firstExpressServer.js"></script>' 
+})
+
+const firstRestApi = readPage("./public/pages/firstRestApi/firstRestApi.html")
+
+export const firstRestApiPage = renderPage(firstRestApi, {tabTitle: "My First Rest Api"})
+
+const apiExample = readPage("./public/pages/apiExample/apiExample.html")
+
+export const apiExamplePage = renderPage(apiExample, {tabTitle: "Full REST API example"})
+
+const frontendJs = readPage("./public/pages/frontendJs/frontendJs.html")
+
+export const frontendJsPage = renderPage(frontendJs, {
+    tabTitle: "Frontend JavaScript",
+    scriptLinks: '<script src="/pages/frontendJs/frontendJs.js"></script>',
+    cssLinks: '<link rel="stylesheet" href="/pages/frontendJs/frontendJs.css">'
 })
