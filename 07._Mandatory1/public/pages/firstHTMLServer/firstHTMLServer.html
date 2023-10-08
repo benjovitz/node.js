@@ -1,0 +1,97 @@
+<h1>HTML</h1>
+
+<h2>SSR (Server Side Rendering)</h2>
+<div class="text-field">
+    SSR is when the server handles the rendering of the pages, instead of the client doing it. 
+    SSR has some advantages like: <br>
+    <b>Client memory:</b> The client doesnt need to spend as many resources rendering since the server does the most of it,
+    and the client just needs to display the html send. <br>
+    <b>SEO (Search Engine Optimization):</b> Webcrawlers who scour the internet for good websites, will give extra points to SSR websites
+    due to not having to load the javascript since it is already rendered from the servers side. <br>
+    <b>Time spent:</b> The rendering also only need to happen when the server is started, not every time the client access it.
+    Since the pages is stored directly on the server as variables.
+</div>
+
+<h2>How to in express</h2>
+<div class="text-field">
+    <h3>renderPages.js</h3>
+    <p>this js file has 2 functions <b>readPage</b> and <b>renderPage</b> <br>
+    <b>readPage</b> turns the page from the a path give to a string. Using fs which comes with with node.js.<br>
+    <b>renderPage</b> takes the string and concatenate it with the top.html and bottom.html which are also made to strings, and we replace cssLinks, tabTitle and scriptLinks
+    with values given from preparePages, if the page should have any custom script files or css files. 
+    </p>
+    <h3>preparePages.js</h3>
+    <p>Uses the functions from <b>renderpages</b> to ready the pages for our app.js</p>
+    <h3>app.js</h3>
+    <p>We import the rendered pages and use <b>res.send</b> to send it back to the client. We also need to serve the whole public folder for the client to be able to access the files which dont have routes like css and js files.
+    So the whole public folder is accessible. See example <a href="/pages/arrays/arrays.js">arrays.js</a>, <a href="/pages/arrays/arrays.css">arrays.css</a>, <a href="/pages/arrays/arrays.html">arrays.html</a>, these can be accessed wihtout it having a route.</p>
+</div>
+<pre>renderPages.js
+    <code class="language-javascript line-numbers">import fs from "fs"
+
+    export function readPage(path){
+        return fs.readFileSync(path).toString()
+    }
+        
+    export function renderPage(page, config = {}){
+        const top = fs.readFileSync("./public/components/top/top.html").toString()
+        .replace("$TAB_TITLE", config.tabTitle || "Node Mandatory 1")
+        .replace("$CSS_LINKS", config.cssLinks || "")
+        const bottom = fs.readFileSync("./public/components/bottom/bottom.html").toString()
+        .replace("$SCRIPT_LINKS", config.scriptLinks || "")
+            
+        return top + page + bottom
+    }</code>
+</pre>
+<pre>top.html
+    <code class="language-html line-numbers">&lt;!DOCTYPE html&gt;
+        &lt;html lang="en"&gt;
+        &lt;head&gt;
+            &lt;link rel="stylesheet" href="../../assets/css/app.css"&gt;
+            &lt;link rel="stylesheet" href="../../assets/prism/prism.css"&gt;
+            $CSS_LINKS
+            &lt;meta charset="UTF-8"&gt;
+            &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+            &lt;link rel="icon" type="image/x-icon" href="../../favicon-32x32.png"&gt;
+            &lt;title&gt;$TAB_TITLE&lt;/title&gt;
+        &lt;/head&gt;
+        &lt;body&gt;</code>
+</pre>
+
+<pre>homepage.html
+    <code class="language-html line-numbers">
+        &lt;h2&gt;&lt;a href="/javascript"&gt;JavaScript&lt;/a&gt;&lt;/h2&gt;
+        &lt;h2&gt;&lt;a href="/gitBasics"&gt;Git in the terminal&lt;/a&gt;&lt;/h2&gt;
+        &lt;h2&gt;&lt;a href="/firstExpressServer"&gt;My first express server&lt;/a&gt;&lt;/h2&gt;
+        &lt;h2&gt;&lt;a href="/firstRestApi"&gt;My first REST API&lt;/a&gt;&lt;/h2&gt;
+        &lt;h2&gt;&lt;a href="/firstHTMLServer"&gt;My first HTML server&lt;/a&gt;&lt;/h2&gt;
+        &lt;h2&gt;&lt;a href="https://time-pied.vercel.app/"&gt;Time project&lt;/a&gt;&lt;/h2&gt;
+        &lt;h2&gt;&lt;a href="/frontendJs"&gt;Frontend JavaScript&lt;/a&gt;&lt;/h2&gt;
+        &lt;h2&gt;&lt;a href="/signIn"&gt;Sign in mock&lt;/a&gt;&lt;/h2&gt;
+        </code>
+</pre>
+
+<pre>bottom.html
+    <code class="language-html line-numbers">&lt;/body&gt;
+        &lt;script src="../../assets/prism/prism.js"&gt;&lt;/script&gt;
+        $SCRIPT_LINKS
+        &lt;/html&gt;</code>
+</pre>
+<pre>preparePages.js
+    <code class="language-javascript line-numbers">const homepage = readPage("./public/pages/homepage/homepage.html")
+
+    export const homepagePage = renderPage(homepage, {tabTitle: "Home"})</code>
+</pre>
+<pre>app.js
+    <code class="language-javascript line-numbers">import express from "express"
+    import { homepagePage } from "../util/preparePages.js"
+    
+    const app = express()
+    app.use(express.static("public"))
+    
+    app.get("/", (req, res) => {
+        res.send(homepagePage)
+    })
+
+    app.listen(process.env.PORT)</code>
+</pre>

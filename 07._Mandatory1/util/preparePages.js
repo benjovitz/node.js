@@ -71,3 +71,7 @@ export const signInPage = renderPage(signIn, {
 const privatePage = readPage("./private/private.html")
 
 export const privatePagePage = renderPage(privatePage, {tabTitle: "Members Only"})
+
+const firstHTMLServer = readPage("./public/pages/firstHTMLServer/firstHTMLServer.html")
+
+export const firstHTMLServerPage = renderPage(firstHTMLServer, {tabTitle: "My First HTML Server"})

@@ -44,8 +44,9 @@
     and the other things it will add to the package.json. It will look like the one below with not modifications. <br>
     It adds a bunch of properties, some which are pretty self explanitory. <br>
     <h4>Scripts</h4>
-    We can setup up custom scripts to run commands via <b>npm</b>, i have added the start:script script. <br>
-    To run it, we will need to write <b>npm run start:script</b>. <br>
+    We can setup up custom scripts to run commands via <b>npm</b>, i have added the start:dev script. <br>
+    To run it, we will need to write <b>npm run start:dev</b>. <br>
+    <b>cross-env</b> is a npm package that let us set up environment variables, to be accessed through the whole project. We access it by calling <b>process.env.PORT</b>
     Scripts which a named <b>start, test and build</b> doesnt need run before it. The reason we need run before it, is because we can name them anything. 
     So we could name a script install which conflicts with<b>npm install</b>. <br>
     I have also added <b>type: module</b>. The default is <b>type: commonjs</b>. 
@@ -57,11 +58,14 @@
     "version": "1.0.0",
     "description": "",
     "main": "index.js",
-    "type": "module",
+    "type": "module", //not original
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
-        "start:script": "node ./app.js"
+        "start:dev": "cross-env PORT=8080 nodemon app.js" //not original
     },
+    "dependencies": { //not original
+        "cross-env": "^7.0.3",
+      },
     "keywords": [],
     "author": "",
     "license": "ISC"

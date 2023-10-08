@@ -12,7 +12,8 @@ import {
     firstRestApiPage,
     apiExamplePage,
     frontendJsPage,
-    signInPage
+    signInPage,
+    firstHTMLServerPage
 } from "../util/preparePages.js"
 
 const router = Router()
@@ -67,6 +68,10 @@ router.get("/frontendJs", (req, res) => {
 
 router.get("/signIn", (req, res) => {
     res.send(signInPage)
+})
+
+router.get("/firstHTMLServer", (req, res) => {
+    res.send(firstHTMLServerPage)
 })
 
 export default router
