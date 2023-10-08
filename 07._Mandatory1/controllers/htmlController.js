@@ -11,7 +11,8 @@ import {
     gitBasicsPage, 
     firstRestApiPage,
     apiExamplePage,
-    frontendJsPage 
+    frontendJsPage,
+    signInPage
 } from "../util/preparePages.js"
 
 const router = Router()
@@ -62,6 +63,10 @@ router.get("/apiExample", (req, res) => {
 
 router.get("/frontendJs", (req, res) => {
     res.send(frontendJsPage)
+})
+
+router.get("/signIn", (req, res) => {
+    res.send(signInPage)
 })
 
 export default router

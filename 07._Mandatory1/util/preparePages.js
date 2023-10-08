@@ -59,3 +59,15 @@ export const frontendJsPage = renderPage(frontendJs, {
     scriptLinks: '<script src="/pages/frontendJs/frontendJs.js"></script>',
     cssLinks: '<link rel="stylesheet" href="/pages/frontendJs/frontendJs.css">'
 })
+
+const signIn = readPage("./public/pages/signIn/signIn.html")
+
+export const signInPage = renderPage(signIn, {
+    tabTitle: "Frontend JavaScript",
+    cssLinks: '<link rel="stylesheet" href="/pages/signIn/signIn.css">',
+    scriptLinks: '<script src="/pages/signIn/signIn.js"></script>'
+})
+
+const privatePage = readPage("./private/private.html")
+
+export const privatePagePage = renderPage(privatePage, {tabTitle: "Members Only"})
