@@ -8,13 +8,13 @@ const javascriptTopics = readPage('./public/pages/topics/topics.html');
 
 export const javascriptTopicsPage = renderPage(javascriptTopics, { tabTitle: 'Javascript Topics' });
 
-const jsbasics = readPage('./public/pages/jsbasics/jsbasics.html');
+const jsBasics = readPage('./public/pages/jsBasics/jsBasics.html');
 
-export const jsBasicsPage = renderPage(jsbasics, { tabTitle: 'Javascript/Node Basics' });
+export const jsBasicsPage = renderPage(jsBasics, { tabTitle: 'Javascript/Node Basics' });
 
 const declarations = readPage('./public/pages/declarations/declarations.html');
 
-export const declarationsPage = renderPage(declarations, { tabTitle: 'Delcarations' });
+export const declarationsPage = renderPage(declarations, { tabTitle: 'Declarations' });
 
 const objects = readPage('./public/pages/objects/objects.html');
 

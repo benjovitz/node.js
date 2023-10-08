@@ -2,7 +2,7 @@
 
 <h2>Rest conventions</h2>
 <div class="text-field">
-    There are some REST conventions to follow to make sure the is consitency in different REST api's. <br>
+    There are some REST conventions to follow to make sure the is consistency in different REST api's. <br>
     <h3>Order</h3>
     The order of the endpoints in the specific app is to make it easy for developers to find a specific endpoint because they know where to look for it.
     The order is as follows: <br>
@@ -40,14 +40,14 @@
 
 <h2>package.json part 2</h2>
 <div class="text-field">
-    We can quickly setup a node project by running the command <b>npm init</b> it then asks you to fill out project name, packagename, package version 
+    We can quickly setup a node project by running the command <b>npm init</b> it then asks you to fill out project name, package name, package version 
     and the other things it will add to the package.json. It will look like the one below with not modifications. <br>
-    It adds a bunch of properties, some which are pretty self explanitory. <br>
+    It adds a bunch of properties, some which are pretty self explanatory. <br>
     <h4>Scripts</h4>
     We can setup up custom scripts to run commands via <b>npm</b>, i have added the start:dev script. <br>
     To run it, we will need to write <b>npm run start:dev</b>. <br>
     <b>cross-env</b> is a npm package that let us set up environment variables, to be accessed through the whole project. We access it by calling <b>process.env.PORT</b>
-    Scripts which a named <b>start, test and build</b> doesnt need run before it. The reason we need run before it, is because we can name them anything. 
+    Scripts which a named <b>start, test and build</b> doesn't need run before it. The reason we need run before it, is because we can name them anything. 
     So we could name a script install which conflicts with<b>npm install</b>. <br>
     I have also added <b>type: module</b>. The default is <b>type: commonjs</b>. 
     There is a difference in how to import with the two types. See examples below. <br>

@@ -4,9 +4,9 @@
 <div class="text-field">
     SSR is when the server handles the rendering of the pages, instead of the client doing it. 
     SSR has some advantages like: <br>
-    <b>Client memory:</b> The client doesnt need to spend as many resources rendering since the server does the most of it,
+    <b>Client memory:</b> The client doesn't need to spend as many resources rendering since the server does the most of it,
     and the client just needs to display the html send. <br>
-    <b>SEO (Search Engine Optimization):</b> Webcrawlers who scour the internet for good websites, will give extra points to SSR websites
+    <b>SEO (Search Engine Optimization):</b> Web crawlers who scour the internet for good websites, will give extra points to SSR websites
     due to not having to load the javascript since it is already rendered from the servers side. <br>
     <b>Time spent:</b> The rendering also only need to happen when the server is started, not every time the client access it.
     Since the pages is stored directly on the server as variables.
@@ -21,9 +21,9 @@
     with values given from preparePages, if the page should have any custom script files or css files. 
     </p>
     <h3>preparePages.js</h3>
-    <p>Uses the functions from <b>renderpages</b> to ready the pages for our app.js</p>
+    <p>Uses the functions from <b>renderPages</b> to ready the pages for our app.js</p>
     <h3>app.js</h3>
-    <p>We import the rendered pages and use <b>res.send</b> to send it back to the client. We also need to serve the whole public folder for the client to be able to access the files which dont have routes like css and js files.
+    <p>We import the rendered pages and use <b>res.send</b> to send it back to the client. We also need to serve the whole public folder for the client to be able to access the files which don't have routes like css and js files.
     So the whole public folder is accessible. See example <a href="/pages/arrays/arrays.js">arrays.js</a>, <a href="/pages/arrays/arrays.css">arrays.css</a>, <a href="/pages/arrays/arrays.html">arrays.html</a>, these can be accessed wihtout it having a route.</p>
 </div>
 <pre>renderPages.js

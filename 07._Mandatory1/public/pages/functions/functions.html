@@ -2,7 +2,7 @@
 <div class="text-field">
     Functions allows write logic down once, instead of repeating ourselves. 
     This makes the code more maintainable, reuseable and modular. <br>
-    Hoisting means that our functions will be read first, wich allows us to call it before initialization. Const and let are hoisted but not initialized. They need to be declared before usage. Var is hoisted and initialized but bleeds to other scopes, so could be a bit tricky to use. <br>
+    Hoisting means that our functions will be read first, which allows us to call it before initialization. Const and let are hoisted but not initialized. They need to be declared before usage. Var is hoisted and initialized but bleeds to other scopes, so could be a bit tricky to use. <br>
     Callback is when a function is taken as a parameter in another function. <br>
     The return is the last thing happening in the function, code after the return statement wont be executed. the return statement is that function delivers back to you.
     Heres a couple of ways to write functions in javascript.
@@ -10,7 +10,7 @@
 
 <pre>
     <code class="language-javascript line-numbers">//Hoisting
-    console.log(delcaredFunction("Dan","iel"))
+    console.log(declaredFunction("Dan","iel"))
     
     hoisting = (parameter1, parameter2) => {
         return parameter1 + parameter2
@@ -23,13 +23,13 @@
     
     
     
-    const withConstructer = new Function("parameter1", "parameter2", "return parameter1 + parameter2")
+    const withConstructor = new Function("parameter1", "parameter2", "return parameter1 + parameter2")
     
-    function delcaredFunction(parameter1, parameter2){
+    function declaredFunction(parameter1, parameter2){
         return parameter1 + parameter2
     }
     
-    const expressionWithanonymousFunction = function(parameter1, parameter2){
+    const expressionWithAnonymousFunction = function(parameter1, parameter2){
         return parameter1 + parameter2
     }
     

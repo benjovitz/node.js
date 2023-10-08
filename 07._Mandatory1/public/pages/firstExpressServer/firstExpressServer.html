@@ -3,7 +3,7 @@
 <div class="text-field">
     The entry point for a node project is package.json. We can manually create a <b>package.json</b> file and add a dependency like below.
     Then typing <b>npm install (npm i)</b> will install the given dependencies. <br>
-    We can also skip creating the file manually and write <b>npm install "dependencyName"</b>, that will automaticly create a package.json file like the one below. <br>
+    We can also skip creating the file manually and write <b>npm install "dependencyName"</b>, that will automatically create a package.json file like the one below. <br>
     This will add a folder called node_modules, which is the code needed to run our dependencies, the dependencies' dependencies if u will.
 </div>
 
@@ -37,7 +37,7 @@
 <div class="text-field">
     Lets make a route. We use the <b>app</b> variable to call <b>app.get()</b> <br>
     The string <b>"/getSimpleResponse"</b> is the path to the endpoint, so the full url would be <b>http://localhost:8080/getSimpleResponse</b> <br>
-    Then we use an <b>arrow function</b> to declare our <b>request</b> and <b>response</b>. The request would come from the client, and the repsonse from the server. 
+    Then we use an <b>arrow function</b> to declare our <b>request</b> and <b>response</b>. The request would come from the client, and the response from the server. 
     So when we use <b>response.send("hello")</b> we are telling the server that the response back should be a JSON object (because of the curly brackets {})
     and should have the key of <b>data</b> and value of <b>"First endpoint"</b>.
 </div>
@@ -68,7 +68,7 @@
     <code class="language-javascript line-numbers">const express = require("express")
     const app = express()
 
-    app.get("/getReponseWithParameter/:name", (req, res) => {
+    app.get("/getResponseWithParameter/:name", (req, res) => {
         const name = req.params.name
         res.send({data:{
             message: `Hello there ${name}`,
@@ -80,7 +80,7 @@
     app.listen(8080)</code>
 </pre>
 
-<button id="getResponseWithParameter">Send name and get reponse</button>
+<button id="getResponseWithParameter">Send name and get response</button>
 <input id="getResponseWithParameter_name" type="text" placeholder="enter name"> 
 <input id="getResponseWithParameter_res" type="text" readonly placeholder="response">
 

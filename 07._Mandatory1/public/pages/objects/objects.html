@@ -3,10 +3,10 @@
     <div class="text-field">Javascript objects are initiated with curly brackets { }. <br>
     They are used to store multiple values in a single instance in an organized way. They also align with JSON syntax which makes them very easy to work with. <br> <br>
     Below are some examples for altering an object. <br> <br>
-    Access a single property of the object with <b>objectName.proptertyName</b>. <br>
+    Access a single property of the object with <b>objectName.propertyName</b>. <br>
     Add new values with <b>objectName.newPropertyName</b>. <br>
     All types are welcome in an js object, may they be strings, numbers, booleans, functions or arrays. Even other objects. <br> <br>
-    The specific properties can be accessed with <b>this</b> wich refers to itself. So in the function calling <b>this.name</b> return the name within the object. This helps with scoping so we dont have to use variable names from potentially other scopes. <br> <br>
+    The specific properties can be accessed with <b>this</b> which refers to itself. So in the function calling <b>this.name</b> return the name within the object. This helps with scoping so we dont have to use variable names from potentially other scopes. <br> <br>
 </div>
     <pre>
         <code class="language-javascript line-numbers">// js objects
@@ -19,7 +19,7 @@
             get scream () {
                 return `*SCREAMING* "MY NAME IS ${this.name.toUpperCase()}`
             },
-            numbersIknow: [1, 2, 3],
+            numbersIKnow: [1, 2, 3],
             pet: {type: "Cat", name: "Bitten", age: 1},
             winning: true
         }
@@ -45,7 +45,7 @@
     learningLevel: 'Chimp',
     makeNoise: [Function: makeNoise],
     scream: [Getter],
-    numbersIknow: [ 1, 2, 3 ],
+    numbersIKnow: [ 1, 2, 3 ],
     pet: { type: 'Cat', name: 'Bitten', age: 1 },
     winning: true
 }
@@ -56,7 +56,7 @@
     learningLevel: 'Chimp',
     makeNoise: [Function: makeNoise],
     scream: [Getter],
-    numbersIknow: [ 1, 2, 3 ],
+    numbersIKnow: [ 1, 2, 3 ],
     pet: { type: 'Cat', name: 'Bitten', age: 1 },
     winning: true
 }
@@ -66,7 +66,7 @@
     learningLevel: 'Chimp',
     makeNoise: [Function: makeNoise],
     scream: [Getter],
-    numbersIknow: [ 1, 2, 3 ],
+    numbersIKnow: [ 1, 2, 3 ],
     pet: { type: 'Cat', name: 'Bitten', age: 1 },
     winning: true,
     drink: 'Apple juice'
@@ -81,12 +81,12 @@
     </div>
     <pre>
         <code class="language-javascript line-numbers">let primitive = 7
-        primitive = 10 // new memory adress
+        primitive = 10 // new memory address
 
         const monkey1 = {name: "Daniel", age: 23, type: "Human"}
         const monkey2 = {name: "Hiro", age: 15, type: "Chimp"}
 
-        const monkey3 = monkey1 // same adress reference 
+        const monkey3 = monkey1 // same address reference 
 
         monkey3.age = 6
 
@@ -98,8 +98,8 @@ Monkey 1: { name: 'Daniel', age: 6, type: 'Human' } </code></pre>
         Getting todays date can be very useful and javascript has a couple of built in function for just that! <br>
         <b>Date()</b> returns todays date as a string. <br>
         <b>new Date()</b> returns a date object, which has getters on properties <b>milliseconds, seconds, minutes, hours, day, month and year.</b>
-        The date object also has function called <b>toLocalDateString</b> which takes two arguments (it also sets the timezone to the useers timezone). First is the language and format of the string like "da-DK" for danish. The second argument is an object of options for the string like which values of the time to return such as only the month, day and year, and have the year only displayed with 2 digits. A timezone can also be specified.<br>
-        <b>Date.now()</b> returns the number of milliseconds elapsed since midnight, January 1, 1970. The date was choosen by the engineers of the UNIX system which started development in 1969. <br> <a href="https://en.wikipedia.org/wiki/Unix_time">source</a> <br>
+        The date object also has function called <b>toLocalDateString</b> which takes two arguments (it also sets the timezone to the users timezone). First is the language and format of the string like "da-DK" for danish. The second argument is an object of options for the string like which values of the time to return such as only the month, day and year, and have the year only displayed with 2 digits. A timezone can also be specified.<br>
+        <b>Date.now()</b> returns the number of milliseconds elapsed since midnight, January 1, 1970. The date was chosen by the engineers of the UNIX system which started development in 1969. <br> <a href="https://en.wikipedia.org/wiki/Unix_time">source</a> <br>
         See examples below.
     </div>
     <pre>
