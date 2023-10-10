@@ -4,7 +4,7 @@ const secretKey = 'aRandomSecretKeyThatShouldBeLongAndSecure123!@#$%^&*()_';
 
 const correctUser = {
   username: 'daniel',
-  password: '1234',
+  password: '1234'
 };
 
 function generateToken(payload) {

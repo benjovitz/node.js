@@ -1,0 +1,5 @@
+React children er elementer inde i andre elementer.
+
+slot er navnet på children i svelte.
+
+props nedarves. Man kan sende en prop ned og data op.
