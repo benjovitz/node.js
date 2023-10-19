@@ -14,4 +14,4 @@ app.use('/api', mountainController);
 app.use('/api', simpleApiController);
 app.use('/api', signInController);
 
-app.listen(process.env.PORT);
+app.listen(process.env.PORT || 3000);
