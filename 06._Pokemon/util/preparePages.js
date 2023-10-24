@@ -5,7 +5,7 @@ export const frontpagePage = renderPage(frontpage, {tabTitle: "PoKEAmon | Welcom
 
 const battle = readPage("./public/pages/battle/battle.html")
 
-export const battePage = renderPage(battle, {
+export const battlePage = renderPage(battle, {
     tabTitle: "PoKEAmon | Battle",
     cssLinks: ' <link rel="stylesheet" href="/pages/battle/battle.css">'
 })

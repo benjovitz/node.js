@@ -7,3 +7,6 @@ miljø variabler er specifikt til node og ikke til browser. Der har man system a
 cross env til at lave scripts på tværs af styresystemer. ex. "start:prod": "cross-env PORT=80 node app.js" det bruges til at definerer porte hovedsagligt
 
 SSR Fordele: sparer ressourer for client, SEO optimerering, skal kun samle en gang når serveren starter
+
+
+forms. Brug url encoder i app.js og giv alle input et name som bliver til keys for json.

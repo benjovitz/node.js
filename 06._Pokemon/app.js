@@ -2,9 +2,10 @@ import express from "express";
 const app = express();
 
 app.use(express.static("public"));
+app.use(express.urlencoded({extended: true}))
 
 import { randomIntFromInterval } from "./util/randomUtil.js";
-import { frontpagePage, battePage, contactPage } from "./util/preparePages.js";
+import { frontpagePage, battlePage, contactPage } from "./util/preparePages.js";
 
 // ====================== HTML  ======================
 
@@ -15,7 +16,7 @@ app.get("/", (req, res) => {
 
 app.get("/battle", (req, res) => {
     //res.sendFile(path.resolve("./public/battle/battle.html"));
-    res.send(battePage)
+    res.send(battlePage)
 });
 
 app.get("/contact", (req, res) => {
@@ -60,6 +61,7 @@ app.get("/battlepokemon", (req, res) => {
 });
 
 app.post("/contact", (req, res) => {
+    console.log(req.body)
     res.redirect("/contact")
 })
 
