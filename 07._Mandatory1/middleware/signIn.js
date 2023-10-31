@@ -19,12 +19,26 @@ function verifyToken(token) {
   }
 }
 
-const signInCheck = (token) => {
+ function signInCheck(token) {
   const decodedToken = verifyToken(token);
   if (decodedToken.username === correctUser.username
         && decodedToken.password === correctUser.password) {
-    return true;
+    return true
+  } else {
+    res.sendStatus(401);
   }
-};
+}; 
+
+/* function signInCheck(req, res, next){
+  const parts = req.headers.authorization.split(" ")
+  const token = parts[1]
+  const decodedToken = verifyToken(token);
+  if (decodedToken.username === correctUser.username
+        && decodedToken.password === correctUser.password) {
+    next();
+  } else {
+    res.sendStatus(401);
+  }
+} */
 
 export { generateToken, signInCheck };

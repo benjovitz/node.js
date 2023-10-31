@@ -33,4 +33,4 @@ async function getMembersPage() {
   } else {
     window.location.href = `api/membersPage/${token}`;
   }
-}
+} 

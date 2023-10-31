@@ -15,6 +15,10 @@ router.get('/membersPage/:token', (req, res) => {
   } else {
     res.status(403).send({ data: 'Wrong password or username' });
   }
-});
+}); 
+
+/* router.get('/membersPage', signInCheck, (req, res) => {
+    res.send(privatePagePage)
+}); */
 
 export default router;
