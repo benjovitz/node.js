@@ -25,7 +25,7 @@
 
 		<nav>
 			<Link to="profile">Profile</Link>
-      <Link to="myInfo">My info</Link>
+      		<Link to="myInfo">My info</Link>
 		</nav>
 	</header>
 

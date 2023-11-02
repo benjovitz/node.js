@@ -3,11 +3,11 @@
     let infoList = []
 
     onMount( async() => {
-        const response = await fetch("https://localhost:8080/info",{
+        const response = await fetch("http://localhost:8080/info",{
             credentials: "include"
         })
         const result = await response.json()
-        infoList = result
+        infoList = result.data
     })
 </script>
 

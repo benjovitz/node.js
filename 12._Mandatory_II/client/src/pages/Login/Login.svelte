@@ -84,6 +84,8 @@
         } else {
             toast.success(result.data)
             user.set({ username, password });
+            const from = ($location.state && $location.state.from) || "/";
+		    navigate(from, { replace: true });
         } 
     }
     
@@ -120,6 +122,6 @@
 <h1>Sign in</h1>
 <input bind:value={username} type="text" placeholder="username"> <br>
 <input bind:value={password} type="password" placeholder="password"><br>
-<button on:click={handleSubmit}>sign in</button>
+<button on:click={signIn}>sign in</button>
 
 <Toaster />
