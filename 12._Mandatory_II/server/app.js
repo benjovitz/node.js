@@ -28,6 +28,9 @@ app.use(authRouter)
 import infoRouter from "./routers/infoRouter.js"
 app.use(infoRouter)
 
+import mailRouter from "./routers/mailRouter.js"
+app.use(mailRouter)
+
 app.get("/", (req, res) => {
     console.log(req.session)
     res.send()

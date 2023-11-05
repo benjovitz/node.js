@@ -16,7 +16,6 @@ router.get("/auth/logout", (req, res) => {
 })
 
 router.get("/auth/cookieTest", (req, res) => {
-    console.log(req.session)
-    res.sendStatus(200)
+    res.send({data: req.session})
 })
 export default router
