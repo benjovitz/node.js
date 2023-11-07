@@ -6,7 +6,6 @@
 
     async function submitCoffeeLoverName(){
         const response = await fetch(`${$BASE_URL}/api/coffeeLovers`, {  
-            credentials: "include",
             method: "POST",
             headers: {
                 "content-type": "application/json"
@@ -15,7 +14,7 @@
         })
 
         if(response.ok){
-            navigate("/who-is-u")
+            navigate("/who-is-ussr")
         }
         
     }

@@ -4,9 +4,7 @@
     let coffeeLoverName = ""
 
     onMount( async() => {
-        const response = await fetch(`${$BASE_URL}/api/coffeeLovers`,{
-            credentials: "include"
-        })
+        const response = await fetch(`${$BASE_URL}/api/coffeeLovers`)
         const result = await response.json()
 
         coffeeLoverName = result.data
