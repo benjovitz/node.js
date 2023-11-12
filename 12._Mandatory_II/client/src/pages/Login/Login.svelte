@@ -1,10 +1,12 @@
 <script>
-	import { useNavigate, useLocation } from "svelte-navigator";
+	import  { useNavigate, useLocation, navigate } from "svelte-navigator";
 	import { user } from "../../stores/userStore";
     import toast, {Toaster} from "svelte-french-toast"
 
-	const navigate = useNavigate();
+	const useNavigation = useNavigate();
 	const location = useLocation();
+
+
 
 	let username;
 	let password;
@@ -25,7 +27,7 @@
             toast.success(result.data)
             user.set({ username, password });
             const from = ($location.state && $location.state.from) || "/";
-		    navigate(from, { replace: true });
+		    useNavigation(from, { replace: true });
         } 
     }
     
@@ -35,5 +37,7 @@
 <input bind:value={username} type="text" placeholder="username"> <br>
 <input bind:value={password} type="password" placeholder="password"><br>
 <button on:click={signIn}>sign in</button>
+<button on:click={() => navigate("signup")}>sign up</button> <br>
+<button on:click={() => navigate("forgot")}>forgor? 💀</button> <br>
 
 <Toaster />

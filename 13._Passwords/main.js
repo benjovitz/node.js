@@ -1,13 +1,14 @@
 import bcrypt from "bcrypt"
 
-const saltRounds = 15
+const saltRounds = 14
 
-const plainTextPassword = "karen123"
+const plainTextPassword = "1234"
 
-const hashedPasswordOutput = "$2b$15$plWg0FwERFfjo.nHF4tnCO.79y5Y/C6WyVbpdMVajGbqe.6M6/HJW"
+const hashedPasswordOutput = "$2b$14$9bHAomGFUozjSldbdxTyoeotdfQF8j/Nniev73U6UhVsVxcRwH0oO"
 
 const hashedPassword = await bcrypt.hash(plainTextPassword, saltRounds)
 
 const compareResult = await bcrypt.compare(plainTextPassword, hashedPasswordOutput)
 
+console.log(hashedPassword)
 console.log(compareResult)

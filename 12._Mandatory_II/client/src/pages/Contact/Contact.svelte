@@ -1,4 +1,5 @@
 <script>
+    import toast, {Toaster} from "svelte-french-toast";
 
     async function handleSendMail(){
         const response = await fetch("http://localhost:8080/mail/contact",{
@@ -9,7 +10,13 @@
             },
             body: JSON.stringify({email: document.getElementById("email").value })
         })
-        console.log(await response.json())
+        const result = await response.json()
+
+        if(!result.ok){
+            toast.error(result.data)
+        } else {
+            toast.success(result.data)
+        }
     }
 
 </script>
@@ -21,3 +28,4 @@
     <input id="email" type="email" placeholder="email" name="email"> <br> <br>
     <textarea name="" id="" cols="100" rows="10"></textarea> <br>
     <button on:click={handleSendMail}>Send email</button>
+    <Toaster />
