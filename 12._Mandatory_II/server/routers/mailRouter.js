@@ -1,6 +1,7 @@
 import Router from "express"
-import { sendMail } from "../util/mailUtil.js"
+import { sendContactMail, sendForgotMail } from "../util/mailUtil.js"
 import * as emailValidator from "email-validator"
+import db from "../databases/connection.js"
 
 const router = Router()
 
@@ -14,7 +15,13 @@ function checkEmail(req, res, next){
     }
 
 }
-
+router.post("/mail/forgot", checkEmail, async (req, res) => {
+    try {
+        const email = await db.all("SELECT email FROM users WHERE id = ?", [req.session.userId])
+    } catch (error) {
+        
+    }
+})
 
 router.post("/mail/contact", checkEmail, (req, res) => {
     if(!req.body?.email){
