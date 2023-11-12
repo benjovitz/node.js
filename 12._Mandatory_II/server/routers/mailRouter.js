@@ -27,7 +27,7 @@ router.post("/mail/contact", checkEmail, (req, res) => {
     if(!req.body?.email){
         res.status(404).send({data: "Need email to send contact message"})
     } else  {
-        sendMail(req.body.email)
+        sendContactMail(req.body.email)
         res.send({data: "mail sent"})
     }
 
