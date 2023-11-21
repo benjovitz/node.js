@@ -1,0 +1,3 @@
+emit og on
+emit er munden og on er øret, cb er hjerne
+sende beskeder begge veje mellem client og server
